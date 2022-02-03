@@ -1,9 +1,33 @@
-main {
+html {
     background-image: url(../images/hero-img.jpg);
-    background-size: cover;
+    background-size:cover;
+    /* background-position-y: 20%; */
     height: 100vh;
 }
 
 button {
     margin: 100px;
+}
+
+a {
+    text-decoration: none;
+    appearance: none;
+}
+
+.movie-container {
+    margin: 20px 100px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: solid 3px black;
+}
+
+.movie-container p {
+    margin: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.movie-poster {
+    max-height: 200px;
 }

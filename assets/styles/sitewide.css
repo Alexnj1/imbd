@@ -1,4 +1,9 @@
 .imbd-logo {
-    min-height: 100px;
+    min-height: 130px;
+}
+
+.navbar-item {
+    font-weight: bold;
+    font-size: 20px;
 }
 

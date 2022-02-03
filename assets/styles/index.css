@@ -2,7 +2,7 @@
     padding: 20%;
 }
 
-body {
+html {
     height: 100vh;
     /* background-image: url(/Users/bootcamp/Desktop/projects/bootcamp-group-project/assets/images/hero-img.jpg); */
     background-image: url(../images/hero-img.jpg);
