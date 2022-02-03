@@ -14,6 +14,13 @@ a {
     appearance: none;
 }
 
+.sort-info {
+    text-align: center;
+    font-size: 25px;
+    /* font-weight: bold; */
+    color: white;
+}
+
 .movie-container {
     margin: 20px 100px;
     padding: 20px;
