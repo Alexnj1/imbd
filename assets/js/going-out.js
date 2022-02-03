@@ -25,7 +25,6 @@ function getUpcoming(pageNumber) {
       for (i = 0; i < data.results.length; i++) {
         var movieDate = data.results[i].release_date;
         if (moment().isBefore(movieDate)) {
-          // console.log(data.results[i].release_date)
           var movieContainer = document.createElement("div");
           movieContainer.classList = "movie-container";
           var movieLink = document.createElement("a");
@@ -34,7 +33,7 @@ function getUpcoming(pageNumber) {
 
           var poster = document.createElement("img");
           poster.className = "movie-poster";
-          poster.setAttribute("src", "./assets/images/imbd-logos.jpeg");
+          poster.setAttribute("src", 'http://image.tmdb.org/t/p/w500/' + data.results[i].poster_path);
 
           var movieDescription = document.createElement("div");
           movieDescription.className = "movie-description";
@@ -102,6 +101,7 @@ function getNowPlaying(pageNumber) {
             var poster = document.createElement("img");
             poster.className = "movie-poster";
             poster.setAttribute("src", "./assets/images/imbd-logos.jpeg");
+            poster.setAttribute('src', 'http://image.tmdb.org/t/p/w500/' + data.results[i].poster_path)
 
             var movieDescription = document.createElement("div");
             movieDescription.className = "movie-description";
@@ -163,5 +163,4 @@ nowPlayingButton.addEventListener("click", function () {
   loadMoreNowplaying();
   nowPlayingButton.disabled = true
   upcomingButton.disabled = false;
-  // document.location = ('https://www.google.com')
 });
