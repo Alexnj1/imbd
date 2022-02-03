@@ -1,0 +1,9 @@
+main {
+    background-image: url(../images/hero-img.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+button {
+    margin: 100px;
+}

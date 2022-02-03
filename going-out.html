@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/styles/sitewide.css">
-    <title>Document</title>
-</head>
-<body>
-     <!--Nav Bar with movie list, home page, and going out link-->
-     <header>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-              <a class="navbar-item" href="index.html">
-                <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
-              </a>
-          
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-              </a>
-            </div>
-          
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <a href="index.html" class="navbar-item">
-                  Home
-                </a>
-          
-                <a href="staying-in.html" class="navbar-item">
-                  Staying In
-                </a>
-          
-                <a href="going-out.html" class="navbar-item">
-                    Going Out
-                  </a>
-              </div>
-            </div>
-          </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/styles/going-out.css">
+    <link rel="stylesheet" href="assets/styles/sitewide.css" />
+    <title>Going Out: IMBD</title>
+  </head>
+  <body>
+    <!--Nav Bar with movie list, home page, and going out link-->
+    <header>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="index.html">
+            <img
+              src="assets/images/imbd-logos_transparent.png"
+              class="imbd-logo"
+            />
+          </a>
+
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="index.html" class="navbar-item"> Home </a>
+
+            <a href="staying-in.html" class="navbar-item"> Staying In </a>
+
+            <a href="going-out.html" class="navbar-item"> Going Out </a>
+          </div>
+        </div>
+      </nav>
     </header>
 
+    <main>
+      <div class="button-container is-flex is-justify-content-space-around">
+        <button class="now-playing button is-info is-rounded is-medium">See all movies now playing 🍿</button>
+        <button class="upcoming button is-info is-rounded is-medium">See all upcoming movies ⌚</button>
+      </div>
 
+      <div class="movie-result-container">
+
+      </div>
+
+      <!-- <div>
+        <button class="now-playing button is-info is-rounded"></button>
+      </div> -->
+      
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="./assets/js/going-out.js"></script>
-</body>
+  </body>
 </html>
