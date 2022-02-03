@@ -1,0 +1,11 @@
+#movie-image {
+    min-width: 200px;
+}
+
+#related-movie-img {
+    max-width: 175px;
+}
+
+.imbd-logo {
+    min-height: 100px;
+}
