@@ -88,38 +88,45 @@ function getNowPlaying(pageNumber) {
       console.log(data);
 
       for (i = 0; i < data.results.length; i++) {
-        var movieContainer = document.createElement("div");
-        movieContainer.classList = "movie-container";
-        var movieLink = document.createElement("a");
-        movieLink.classList = "is-flex";
-        movieLink.setAttribute("src", "");
+        var movieDate = data.results[i].release_date;
+        var movieName = data.results[i].original_title
 
-        var poster = document.createElement("img");
-        poster.className = "movie-poster";
-        poster.setAttribute("src", "./assets/images/imbd-logos.jpeg");
+        if (moment(movieDate).isAfter(moment().subtract(45, 'days').calendar())) {
+            var movieContainer = document.createElement("div");
+            movieContainer.classList = "movie-container";
+            var movieLink = document.createElement("a");
+            movieLink.classList = "is-flex";
+            movieLink.setAttribute("href", "./movie-page.html?movie=" + movieName.replace(/\s+/g, ''));
+            movieLink.setAttribute("target", "_blank")
 
-        var movieDescription = document.createElement("div");
-        movieDescription.className = "movie-description";
+            var poster = document.createElement("img");
+            poster.className = "movie-poster";
+            poster.setAttribute("src", "./assets/images/imbd-logos.jpeg");
 
-        var title = document.createElement("p");
-        title.textContent = data.results[i].original_title.toUpperCase();
+            var movieDescription = document.createElement("div");
+            movieDescription.className = "movie-description";
 
-        var release = document.createElement("p");
-        release.textContent = "Release Date: " + data.results[i].release_date;
+            var title = document.createElement("p");
+            title.textContent = data.results[i].original_title.toUpperCase();
 
-        var description = document.createElement("p");
-        description.textContent = "Description: " + data.results[i].overview;
+            var release = document.createElement("p");
+            release.textContent = "Release Date: " + data.results[i].release_date;
 
-        movieDescription.appendChild(title);
-        movieDescription.appendChild(release);
-        movieDescription.appendChild(description);
+            var description = document.createElement("p");
+            description.textContent = "Description: " + data.results[i].overview;
 
-        movieLink.appendChild(poster);
-        movieLink.appendChild(movieDescription);
+            movieDescription.appendChild(title);
+            movieDescription.appendChild(release);
+            movieDescription.appendChild(description);
 
-        movieContainer.appendChild(movieLink);
+            movieLink.appendChild(poster);
+            movieLink.appendChild(movieDescription);
 
-        movieResultContainer.appendChild(movieContainer);
+            movieContainer.appendChild(movieLink);
+
+            movieResultContainer.appendChild(movieContainer); 
+        }
+        
       }
       sortInfo.removeAttribute('hidden')
       loadMoreButton.className = "load-more button is-info is-rounded";

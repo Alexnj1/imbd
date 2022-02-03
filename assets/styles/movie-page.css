@@ -1,0 +1,7 @@
+html {
+    background-image: url(../images/hero-img.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
+    height: 100vh;
+}

@@ -7,5 +7,7 @@ html {
     /* background-image: url(/Users/bootcamp/Desktop/projects/bootcamp-group-project/assets/images/hero-img.jpg); */
     background-image: url(../images/hero-img.jpg);
     background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
 }
 
