@@ -4,10 +4,16 @@
 
 html {
     height: 100vh;
-    /* background-image: url(/Users/bootcamp/Desktop/projects/bootcamp-group-project/assets/images/hero-img.jpg); */
     background-image: url(../images/hero-img.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: 80%;
+}
+
+.welcome-text {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    margin: 20px;
 }
 

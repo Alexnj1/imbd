@@ -5,3 +5,43 @@ html {
     background-position: 80%;
     height: 100vh;
 }
+
+.movie-container {
+    margin: 20px 100px;
+    padding: 20px;
+    backdrop-filter: blur(20px);
+    border: solid 3px black;
+    display: flex;
+
+}
+
+.movie-container p {
+    margin: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.movie-container h3 {
+    font-size: 100px;
+    color: white;
+    margin: 10px;
+}
+
+.movie-poster {
+    box-shadow: 5px 5px 5px black;
+}
+
+.movie-info {
+    margin: 30px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+a {
+    margin: 10px;
+}
