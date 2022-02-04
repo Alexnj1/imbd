@@ -18,8 +18,8 @@ var formSumbitHandler = function(event){
    }
 }
 
-var getMovieInfo = function(){
-    var movie = movieInputEl.value.trim();
+var getMovieInfo = function(movie){
+    
     var apiUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&language=en-US&query=" + movie + "&page=1&include_adult=true";
 
      // make a get request to url
