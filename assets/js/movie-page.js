@@ -2,9 +2,7 @@ const apiKey = "c07b2488e7306d0323e72d8fd4992d94";
 const tomtomKey = "U7LYTJNMpnMKGZ5b9HSZGOLHoCPL1kxU";
 var mainBody = document.querySelector("main");
 var queryString = document.location.search;
-// console.log(queryString)
 movieId = queryString.split("=")[2];
-console.log(movieId);
 
 // Accessing all needed data
 
@@ -12,11 +10,6 @@ function getLocation() {
   navigator.geolocation.getCurrentPosition(success);
 
   function success(geolocation) {
-    // console.log(geolocation)
-    console.log(
-      geolocation.coords.latitude.toString(),
-      geolocation.coords.longitude.toString()
-    );
     var lat = geolocation.coords.latitude;
     var long = geolocation.coords.longitude;
     getTheaters(lat, long);
@@ -32,7 +25,6 @@ function getMovieInfo() {
       "&language=en-US"
   ).then(function (response) {
     response.json().then(function (data) {
-      console.log(data);
       displayMovieInfo(data);
     });
   });
@@ -48,22 +40,9 @@ function getTheaters(lat, long) {
       long
   ).then(function (response) {
     response.json().then(function (data) {
-      console.log(data);
-
-      for (i = 0; i < 5; i++) {
-        if (data.results[i].poi.url) {
-          console.log(
-            data.results[i].poi.name,
-            data.results[i].address.freeformAddress,
-            data.results[i].poi.url
-          );
-        }
-      }
-
       document
         .querySelector(".theaters")
         .addEventListener("click", function () {
-          console.log("hi");
           displayTheaters(data);
         });
     });
@@ -102,7 +81,6 @@ function displayMovieInfo(data) {
   releaseDate.textContent = "Release Date: " + data.release_date;
 
   secondaryInfo.append(genre, status, releaseDate); // this to movie info 4
-  console.log(secondaryInfo);
 
   var overview = document.createElement("p");
   overview.innerHTML = data.tagline + "<br><br>" + data.overview; // this to movie info 5
@@ -158,7 +136,6 @@ function displayMovieInfo(data) {
 function displayTheaters(data) {
   for (i = 0; i < 5; i++) {
     if (data.results[i].poi.url) {
-      var theaterName;
       var main = document.querySelector(".interactions");
 
       var theaters = document.createElement("div");
