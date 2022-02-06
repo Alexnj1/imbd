@@ -91,6 +91,7 @@ function displayMovieInfo(data) {
   var moviePageLink = document.createElement("a");
   moviePageLink.setAttribute("href", data.homepage);
   moviePageLink.setAttribute("target", "_blank");
+  moviePageLink.className = 'a-1'
 
   var moviePageButton = document.createElement("button");
   moviePageButton.classList = "button is-info is-rounded is-medium";
@@ -106,6 +107,7 @@ function displayMovieInfo(data) {
     "https://www.themoviedb.org/movie/" + movieId
   );
   moreInfoLink.setAttribute("target", "_blank");
+  moreInfoLink.className = 'a-2'
 
   var moreInfoButton = document.createElement("button");
   moreInfoButton.classList = "button is-info is-rounded is-medium";
@@ -115,6 +117,7 @@ function displayMovieInfo(data) {
 
   var theaterLink = document.createElement("a");
   theaterLink.setAttribute("target", "_blank");
+  theaterLink.className = 'a-3'
 
   var theaterButton = document.createElement("button");
   theaterButton.classList = "button is-info is-rounded is-medium theaters";
@@ -128,17 +131,20 @@ function displayMovieInfo(data) {
   interactions.className = "interactions";
   interactions.append(links);
 
+  var theaters = document.createElement("div");
+  theaters.className = 'theaters-container'
+
   mainBody.append(movieContainer);
   movieContainer.append(poster, movieInfo);
-  movieInfo.append(title, secondaryInfo, overview, interactions);
+  movieInfo.append(title, secondaryInfo, overview, interactions, theaters);
 }
 
 function displayTheaters(data) {
-  for (i = 0; i < 5; i++) {
+  for (i = 0; i < data.results.length; i++) {
     if (data.results[i].poi.url) {
       var main = document.querySelector(".interactions");
 
-      var theaters = document.createElement("div");
+      var theaters = document.querySelector('.theaters-container')
 
       var theaterContainer = document.createElement("div");
 
