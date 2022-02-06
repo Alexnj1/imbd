@@ -25,6 +25,7 @@ a {
 .movie-container {
     margin: 20px 100px;
     padding: 20px;
+    border-radius: 15px;
     backdrop-filter: blur(10px);
     border: solid 3px black;
 }
@@ -38,4 +39,5 @@ a {
 
 .movie-poster {
     max-height: 250px;
+    border-radius: 5px;
 }
