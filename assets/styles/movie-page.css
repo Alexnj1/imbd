@@ -1,0 +1,112 @@
+html {
+    background-image: url(../images/hero-img.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
+    height: 100vh;
+}
+
+.movie-container {
+    margin: 20px 100px;
+    padding: 20px;
+    backdrop-filter: blur(20px);
+    border: solid 3px black;
+    display: flex;
+    border-radius: 20px;
+}
+
+.movie-container p {
+    margin: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.movie-container h3 {
+    font-size: 100px;
+    color: white;
+    margin: 10px;
+}
+
+.movie-poster {
+    box-shadow: 5px 5px 5px black;
+    height: auto;
+    width: auto;
+    max-height: 800px;
+    position: sticky;
+    top: 20px;
+}
+
+.movie-info {
+    margin: 30px;
+}
+
+.secondary-info {
+    border-bottom: white 3px solid;
+}
+
+.interactions {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.theaters-container {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+}
+
+.theater-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+}
+
+.theater-info a:hover {
+    color: white;
+    text-decoration: underline;
+    transition-duration: .2s;
+}
+
+/* .icon-link {
+    color: skyblue;
+} */
+
+.icon-link:hover {
+    color: white;
+    transition-duration: .2s;
+}
+
+.button {
+    min-width: 300px;
+}
+
+.links {
+    display:inline-flex;
+    flex-direction: column;
+}
+
+a {
+    margin: 10px;
+    text-decoration: none;
+    
+}
+
+.a-1 {
+    position: sticky;
+    top: 20px;
+}
+
+.a-2 {
+    position: sticky;
+    top: 140px;
+}
+
+.a-3 {
+    position: sticky;
+    top: 80px;
+}
+
