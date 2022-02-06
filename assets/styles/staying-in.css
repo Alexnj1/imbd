@@ -6,6 +6,74 @@
     max-width: 175px;
 }
 
+#movie-search {
+    border: solid 2px pink;
+}
 .imbd-logo {
     min-height: 100px;
+}
+
+#id-main {
+    border: solid 2px black;
+    padding: 1vh;
+}
+
+#id-main-div {
+    border: solid 2px orange;
+    /* height: 500px; */
+    /* width: 200px; */
+}
+
+#id-div-main-child-text {
+    margin: 1vh;
+    border: solid 2px black;
+}
+
+
+#id-div-search {
+    border: solid 4px blue;
+    padding: 5vh;
+}
+
+#id-div-search-child {
+    border: solid 2px green;
+    padding: 2vh;
+}
+
+#movie-search-form {
+    border: solid 2px black;
+    padding: 2vh;
+}
+
+/* .fixed-width-height {
+    width: 250px;
+    height: 250px;
+} */
+
+
+/* UTILITIES */
+.black-border {
+    border: solid 2px black;
+}
+
+.poster-size {
+    height: 17vw;
+    width: 12vw;
+}
+
+.display-it-flex {
+    display: flex;
+}
+
+.div-container-max-height {
+    max-height: 750px;
+}
+.max-width-fifty-percent {
+    max-width: 50%;
+    height: auto;
+}
+
+.max-height-div-container {
+    border: solid 2px green;
+    max-height: 36vh;
 }

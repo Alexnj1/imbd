@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="assets/styles/staying-in.css">
     <link rel="stylesheet" href="assets/styles/sitewide.css">
+    <script src="https://kit.fontawesome.com/331def02d9.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!--Nav Bar with movie list, home page, and going out link-->
@@ -32,43 +33,25 @@
     </header>
 
    <!--Movie Search-->
-    <div class="columns is-centered mb-3 mt-6" id="movie-search">
-        <div class="column is-one-third">
-            <h3 class="title is-3">What would you like to watch?</h3>
-        </div>
-    </div>
-    <div class="columns is-centered">
-        <div class="column is-half"> 
-            <form class="is-flex" id = "movie-search-form">
-                <input type="text" class="input is-info mr-2" placeholder="Search.." id="movie-input">
+    <div class="columns is-centered mt-0 mb-5" id="id-div-search">
+        <div class="column is-half is-centered" id="id-div-search-child">
+            <h3 class="title is-2">What would you like to watch?</h3>
+            <form class="is-flex" id = "id-search-form">
+                <input type="text" class="input is-info mr-2" placeholder="Enter your search here" id="movie-input">
                 <button class="button is-outlined is-info" type="submit" id="searchBtn">Search</button>
             </form>
         </div>
     </div>
 
-    
-<!--Movie info div spoof content to get idea of layout-->
-    <div class="columns is-centered">
-        <div class="column is-two-thirds is-flex">
-            <figure class="image">
-                <img id="movie-image" src="assets/images/shrek.jpg" class="is-centered" alt="">
-            </figure>
-            <div class="column is-centered">
-                <h2 class="title is-2 has-text-centered">Shrek</h2>
-                <p id="movie-description" class="pl-4 has-text-centered">
-                It ain't easy bein' green -- especially if you're a likable (albeit smelly) ogre named Shrek. On a
-                mission to retrieve a gorgeous princess from the clutches of a fire-breathing dragon, Shrek teams up
-                with an unlikely compatriot -- a wisecracking donkey.
-                </p> 
-                <h4 class="subtitle is-4">Where To Watch:</h4>
-                <ul>
-                    <li><a href="http://netflix.com" target="blank">Netflix </a></li>
-                    <li><a href="https://hulu.com" target="blank">Hulu </a></li>
-                    <li><a href="https://www.disneyplus.com/" target="blank">Disney Plus </a></li>
-                </ul>
-            </div>
+    <main class="columns is-centered is-three-quarters" id="id-main">
+        <!-- <div class="column black-border">A column with no real purpose</div> -->
+        <div class="columns is-centered is-9 is-multiline py-4 px-6" id="id-main-div">
+        This is div#id-main-div
         </div>
-    </div>
+        <!-- <div class="column black-border">Another column, same deal</div> -->
+    </main> 
+
+
     <!--Related Movies-->
     <h2 class="title is-2 has-text-centered">Related Movies</h2>
     <div class="columns is-centered">
