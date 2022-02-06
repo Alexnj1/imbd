@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IMBD</title>
-    <link rel="stylesheet" href="assets/styles/sitewide.css">
-    <link rel="stylesheet" href="assets/styles/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-</head>
-<body>
-     <!--Nav Bar with movie list, home page, and going out link-->
-     <header>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-              <a class="navbar-item" href="index.html">
-                <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
-              </a>
-          
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-              </a>
-            </div>
-          
-            <div id="navbarBasicExample" class="navbar-menu">
+    <link rel="stylesheet" href="assets/styles/sitewide.css" />
+    <link rel="stylesheet" href="assets/styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <!--Nav Bar with movie list, home page, and going out link-->
+    <header>
+      <nav class="navbar is-justify-content-space-around" role="navigation" aria-label="main navigation"> <!-- this -->
+        <div class="navbar-brand ">
+          <a class="navbar-item" href="index.html">
+            <img
+              src="assets/images/imbd-logos_transparent.png"
+              class="imbd-logo"
+            />
+          </a>
+
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <!-- <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
                 <a href="index.html" class="navbar-item">
                   Home
@@ -39,19 +51,28 @@
                     Going Out
                   </a>
               </div>
-            </div>
-          </nav>
+            </div> -->
+      </nav>
     </header>
     <div class="hero-div">
-        <h1 class="title has-text-centered has-text-white">Movie Night</h1>
-        <div class="columns is-centered">
-            <div class="column has-text-centered is-3">
-                <a href="staying-in.html"><button class="button is-info is-rounded" id="staying-in-btn">Staying In? 🏡</button></a>
-            </div>
-            <div class="column has-text-centered is-3">
-                <a href="going-out.html"><button class="button is-info is-rounded" id="going-out-btn">Going Out? 🍿</button></a>
-            </div>
+      <h1 class="welcome-text">It's Movie Night!
+      </h1>
+      <div class="columns is-centered">
+        <div class="column has-text-centered is-3">
+          <a href="staying-in.html"
+            ><button class="button is-info is-rounded is-large" id="staying-in-btn">
+              Staying In? 🏡
+            </button></a
+          >
         </div>
+        <div class="column has-text-centered is-3">
+          <a href="going-out.html"
+            ><button class="button is-info is-rounded is-large" id="going-out-btn">
+              Going Out? 🍿
+            </button></a
+          >
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
