@@ -1,0 +1,36 @@
+.movie-title {
+   font-size: 18px;
+}
+
+.image {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.dropdown {
+    width: 100%;
+}
+
+.dropdown-trigger {
+    width: 100%;
+}
+.drop-down-button {
+    width: 75%;
+}
+
+.dropdown-menu {
+    width: 75%;
+    margin-left: 13%;
+}
+
+body {
+    background-image: url(../images/hero-img.jpg);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.movie-div {
+    box-shadow: 5px 5px 8px -4px #000000;
+    margin: 20px;
+}
+

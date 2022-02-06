@@ -38,6 +38,9 @@
                 <a href="going-out.html" class="navbar-item">
                     Going Out
                   </a>
+                  <a href="genre.html" class="navbar-item">
+                    Genres
+                </a>
               </div>
             </div>
           </nav>
@@ -49,9 +52,11 @@
         </div>
     </div>
     <div class="columns is-centered">
-        <div class="column is-one-third is-flex"> 
-            <input type="text" class="input is-info mr-2" placeholder="Search..">
-            <button class="button is-outlined is-info" type="submit">Search</button>
+        <div class="column is-half"> 
+            <form class="is-flex" id = "movie-search-form">
+                <input type="text" class="input is-info mr-2" placeholder="Search.." id="movie-input">
+                <button class="button is-outlined is-info" type="submit" id="searchBtn">Search</button>
+            </form>
         </div>
     </div>
 <!--Movie info div spoof content to get idea of layout-->
@@ -99,5 +104,7 @@
             <button class="button">Add To List</button>
         </div>
     </div>
+    <script src="assets/js/staying-in.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
