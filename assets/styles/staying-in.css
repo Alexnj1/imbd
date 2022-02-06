@@ -14,14 +14,15 @@
 }
 
 #id-main {
-    border: solid 2px black;
-    padding: 1vh;
+    border: solid 5px green;
+    padding: 2vh;
+    background-image: url("/assets/images/hero-img.jpg");
+    background-size: contain;
 }
 
-#id-main-div {
-    border: solid 2px orange;
-    /* height: 500px; */
-    /* width: 200px; */
+#id-div-container {
+    border: solid 5px orange;
+    min-height: 750px;
 }
 
 #id-div-main-child-text {
@@ -29,15 +30,10 @@
     border: solid 2px black;
 }
 
-
 #id-div-search {
-    border: solid 4px blue;
+    height: auto;
+    border: solid 5px blue;
     padding: 5vh;
-}
-
-#id-div-search-child {
-    border: solid 2px green;
-    padding: 2vh;
 }
 
 #movie-search-form {
@@ -45,15 +41,10 @@
     padding: 2vh;
 }
 
-/* .fixed-width-height {
-    width: 250px;
-    height: 250px;
-} */
 
-
-/* UTILITIES */
-.black-border {
-    border: solid 2px black;
+/***** UTILITIES *****/
+.custom-border {
+    border: solid 3px yellow;
 }
 
 .poster-size {
@@ -68,6 +59,7 @@
 .div-container-max-height {
     max-height: 750px;
 }
+
 .max-width-fifty-percent {
     max-width: 50%;
     height: auto;
@@ -76,4 +68,24 @@
 .max-height-div-container {
     border: solid 2px green;
     max-height: 36vh;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+.show-overflow-on-hover:hover {
+    overflow: scroll;
+}
+
+.hand-pointer:hover {
+    cursor: pointer;
+}
+
+.background-yellow {
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c)
+}
+
+.text-color {
+    color: rgb(240, 240, 240)
 }

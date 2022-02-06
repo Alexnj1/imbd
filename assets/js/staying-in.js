@@ -1,27 +1,30 @@
 var apiKey =  "api_key=c07b2488e7306d0323e72d8fd4992d94";
-var movieInputEl = document.querySelector("#movie-input");
-var searchBtn = document.querySelector("#searchBtn");
-var movieFormEl= document.querySelector("#id-search-form");
-var mainDiv = document.querySelector("#id-main-div")
-var addToFavBtn = document.querySelector("button.card-header-icon");
-
+var mainDiv = document.getElementById("id-main");
+var movieInputEl = document.getElementById("id-search-input");
+var searchBtn = document.getElementById("id-search-btn");
+var movieFormEl= document.getElementById("id-search-form");
+var divContainer = document.getElementById("id-div-container");
 
 var baseUrl = "https://api.themoviedb.org/3" // base URL to which we will concatenate
 var imageBaseUrl = "https://image.tmdb.org/t/p/original" // for pulling movie posters
-var lang = "&language=en-US"; // may use this parameter in future api fetches
-var includeAdult = "&include_adult=false"; // same with this parameter
-var isDataRetrieved = false;
+var lang = "&language=en-US"; // used in multiple API fetches
+var includeAdult = "&include_adult=false"; // no adult titles returned
 var searchResults = []; // hold movie search results. Array of objects
-var movieId = 11772;
+var similarMoviesResults = [] // hold similar movies search results. Array of objects
+var castInformationResults = [] // hold cast information search results. Array of objects
 
 var formSubmitHandler = function(event){
     // debugger;
     // prevent page from refreshing
     event.preventDefault();
-    // clear out searchResults[] to start fresh
+
+    // clear out arrays to start fresh
     searchResults = [];
+    similarMoviesResults = [];
+    castInformationResults = [];
+
     // get value from input element
-    var searchString = movieInputEl.value.trim();
+    var searchString = "Armageddon" //movieInputEl.value.trim();
     if(searchString){
         getSearchResults(searchString);
         displaySearchResults();
@@ -34,7 +37,7 @@ var formSubmitHandler = function(event){
 }
 
 var getSearchResults = function(aSearchString){
-    console.log("Inside getSearchResults");
+    console.log("Inside getSearchResults()");
     // debugger;
     var searchMovie = "/search/movie?";
     var apiUrl = baseUrl + searchMovie + apiKey + lang + "&query=" + aSearchString + includeAdult;
@@ -58,99 +61,208 @@ var getSearchResults = function(aSearchString){
         });
 };
 
-var displaySearchResults = function() {
+var displaySearchResults = function(){
     // debugger;
     console.log("Inside displaySearchResults()");
-    // Used this timeout function because fetching is asynchronous,
-    // so add delay for searchResults[] to populate so it has length
-    setTimeout(() => {
-        mainDiv.replaceChildren();
-        // display as many movie posters as there are items in searchResults[]
-        for(var i = 0; i < searchResults.length; i++){
-            var movieCard = document.createElement("div");
-            movieCard.className = "card column is-3 mx-6 my-6 px-2 py-2";
-            
-            var movieHeader = document.createElement("div");
-            movieHeader.className = "card-header black-border";
-           
-            var movieTitle = document.createElement("span");
-            movieTitle.innerText = searchResults[i].original_title + ' - ' + searchResults[i].release_date.substring(0,4);
-            movieTitle.className = "card-header-title";
-            
-            var addToFavBtn = document.createElement("button");
-            addToFavBtn.className = "card-header-icon";
-            addToFavBtn.setAttribute("data-movie-id", searchResults[i].id);
-            addToFavBtn.innerHTML = `<span class="icon-text has-text-info">
-                                        <span class="icon">
-                                            <i class="far fa-star"></i>
-                                        </span>
-                                        <span>Add To List</span>
-                                    </span>`; // <i class="fas fa-star"></i> for filled-in star
+    if(divContainer.hasChildNodes()){
+        divContainer.replaceChildren();
+        setTimeout(() => {
+            // display as many movie posters as there are items in searchResults[]
+            for(var i = 0; i < searchResults.length; i++){
+                var movieCard = document.createElement("div");
+                movieCard.className = "card column is-3 mx-6 my-3 px-2 py-2 is-shadowless background-yellow";
+                
+                var movieHeader = document.createElement("div");
+                movieHeader.className = "card-header custom-border";
+               
+                var movieTitle = document.createElement("span");
+                movieTitle.innerText = searchResults[i].original_title + ' - ' + searchResults[i].release_date.substring(0,4);
+                movieTitle.className = "card-header-title";
+                
+                var addToFavBtn = document.createElement("button");
+                addToFavBtn.className = "card-header-icon";
+                addToFavBtn.setAttribute("data-movie-id", searchResults[i].id);
+                addToFavBtn.innerHTML = `<span class="icon-text has-text-info">
+                                            <span class="icon">
+                                                <i class="far fa-star"></i>
+                                            </span>
+                                            <span>Add To List</span>
+                                        </span>`; // <i class="fas fa-star"></i> for filled-in star
+    
+                var divPosterAndPlot = document.createElement("div");
+                divPosterAndPlot.className = "display-it-flex max-height-div-container";
+                
+                var moviePoster = document.createElement("div");
+                moviePoster.innerHTML = `<figure class="image is-2by3">                            
+                                            <img src="` + getMoviePosterImage(searchResults[i].id) + `" alt="Movie poster null">
+                                        </figure>`;
+                moviePoster.className = "card-image poster-size hand-pointer";
+                moviePoster.setAttribute("data-movie-id", searchResults[i].id);
+                moviePoster.addEventListener('click', displayMovieInformation);
 
-            var divContainer = document.createElement("div");
-            divContainer.className = "display-it-flex max-height-div-container";
-            
-            var moviePoster = document.createElement("div");
-            moviePoster.innerHTML = `<figure class="image is-2by3">                            
-                                        <img src="` + getMoviePosterImage(searchResults[i].id) + `" alt="Movie poster null">
-                                    </figure>`;
-            moviePoster.className = "card-image poster-size";
-            moviePoster.setAttribute("data-movie-id", searchResults[i].id);
-            moviePoster.addEventListener('click', getMovieInformation);
-            
-            var moviePlot = document.createElement("p");
-            moviePlot.innerText = searchResults[i].overview;
-            moviePlot.className = "card-content black-border max-width-fifty-percent is-clipped"; // don't want text clipped....
-
-            // append elements to their respective containers
-            movieHeader.append(movieTitle, addToFavBtn);
-            divContainer.append(moviePoster, moviePlot);
-            movieCard.append(movieHeader, divContainer);
-            mainDiv.append(movieCard);
-        }
-    }, 500);
+                var moviePlot = document.createElement("p");
+                moviePlot.innerText = searchResults[i].overview;
+                moviePlot.className = `card-content custom-border
+                max-width-fifty-percent hide-overflow show-overflow-on-hover`;
+    
+                // append elements to their respective containers
+                movieHeader.append(movieTitle, addToFavBtn);
+                divPosterAndPlot.append(moviePoster, moviePlot);
+                movieCard.append(movieHeader, divPosterAndPlot);
+                divContainer.append(movieCard);
+            }
+        }, 500);
+    }
+    
 };
 
 var getMoviePosterImage = function(movieId){
+    // console.log("Inside getMoviePosterImage()");
     var movieObjectIndex = searchResults.findIndex((element) => element.id == movieId);
-    var url = imageBaseUrl + searchResults[movieObjectIndex].poster_path;
-    return url;
+    var posterPath = searchResults[movieObjectIndex].poster_path;
+    if(posterPath == null || posterPath == undefined) {
+        console.log(`Movie with id ${movieId} has poster equal to null`);
+        return;
+    } else {
+        var url = imageBaseUrl + posterPath;
+        return url;
+    }
     
-    // maybe this fetch is not required; perhaps just with variable apiUrl is enough??
-    /* fetch(apiUrl)
-        .then( response => {
-            if(response.ok) {
-                response.blob()
-                .then( theBlob => {
-                    var moviePosterBlob = URL.createObjectURL(theBlob);
-                    console.log(moviePosterBlob, typeof moviePosterBlob);
-                    return moviePosterBlob;
-            })} else {
-                console.log(`The fetch for ${apiUrl} was not successful`);
-            }
-        }) */
 }
 
-var getMovieInformation = function(event){
-    console.log("Inside getMovieInformation()");
-    console.log(event);
-    console.log(event.target);
-    console.log('this is',this);
+var displayMovieInformation = function(event){
+    console.log('Inside getMovieInformation()');
+    // console.log('this is',this);
     // clear out main element
-    mainDiv.replaceChildren();
+    divContainer.replaceChildren();
+    // get selected movie's id to use in pulling information from searchResults[] and other arrays
+    selectedMovieId = this.getAttribute('data-movie-id');
+    var movieObjectIndex = searchResults.findIndex((element) => element.id == selectedMovieId);
+    // run function to get cast information
+    getCastInformation(selectedMovieId);
+
+    // div to hold movie poster and details about the movie, cast, runtime, etc
+    var divContainerChild1 = document.createElement('div');
+    divContainerChild1.className = "columns custom-border";
+
+    // div to hold where to watch/stream
+    var divContainerChild2 = document.createElement('div');
+    divContainerChild1.className = "columns custom-border";
+
+
+    var divMoviePosterImage = document.createElement('div');
+    divMoviePosterImage.className = "column is-one-third custom-border";
+    divMoviePosterImage.innerHTML = `<figure class="image is-2by3">                            
+                                        <img src="` + getMoviePosterImage(selectedMovieId) + `" alt="Movie poster null">
+                                    </figure>`;
+
+    var divMovieInformationList = document.createElement('div');
+    divMovieInformationList.className = "column custom-border";
+    
+    var blockMovieTitle = document.createElement('div');
+    blockMovieTitle.className = 'block text-color';
+    blockMovieTitle.innerText = `Title: ${searchResults[movieObjectIndex].title}`
+    var blockMoviePlot = document.createElement('div');
+    blockMoviePlot.className = 'block text-color';
+    blockMoviePlot.innerText = `Synopsis: ${searchResults[movieObjectIndex].overview}`;
+    var blockReleaseDate = document.createElement('div');
+    blockReleaseDate.className = 'block text-color';
+    blockReleaseDate.innerText = `Release Date: ${searchResults[movieObjectIndex].release_date}`;
+    
+    
+
+    var blockMovieCast = document.createElement('div');
+    blockMovieCast.className = 'block text-color';
+    blockMovieCast.innerText = 'Cast Includes: ' + displayCastInformation();
+
+    // will need to run getSimilarMovies(movieId) to fetch api information
+    // getSimilarMovies(selectedMovieId);
+    
+
+    // append everything to divContainer
+    divMovieInformationList.append(blockMovieTitle, blockMoviePlot, blockReleaseDate, blockMovieCast);
+    divContainerChild1.append(divMoviePosterImage, divMovieInformationList);
+    divContainer.append(divContainerChild1, divContainerChild2);
 }
 
-var addToFav = function(event) {
+var addToFav = function(event){
     console.log("Inside addToFav()");
     var clickedEl = event.target;
+    // clickedElClass = clickedEl.className();
+    // console.log(clickedEl);
     var nearestBtn = clickedEl.closest("button.card-header-icon");
-    console.log(nearestBtn);
+    // console.log(nearestBtn);
     if(nearestBtn.matches("button")) {
         console.log('You clicked a movie to add to your favorites');
         favMovieId = nearestBtn.getAttribute("data-movie-id");
         console.log(favMovieId);
         //do something else for Megan
+    } else {
+        return;
     }
+}
+
+var getSimilarMovies = function(movieId){
+    console.log("Inside getSimilarMovies()");
+    // debugger;
+    var searchRecommendations = `/movie/${movieId}/recommendations?`;
+    var apiUrl = baseUrl + searchRecommendations + apiKey + lang;
+    // fetch the recommendations from the api
+    fetch(apiUrl)
+        .then(response => {
+            if(response.ok){
+                response.json()
+        .then(data => {
+            for(var i = 0; i < 10; i++){
+                similarMoviesResults.push(data.results[i])
+            }
+            console.log(similarMoviesResults);
+        })
+            } else {
+                console.log(`The fetch for ${apiUrl} was not successful`);
+            }
+        });
+}
+
+var getCastInformation = function(movieId){
+    console.log('Inside getCastInformation()');
+    // debugger;
+    var castInformation = `/movie/${movieId}/credits?`;
+    var apiUrl = baseUrl + castInformation + apiKey + lang;
+    // fetch the recommendations from the api
+    fetch(apiUrl)
+        .then(response => {
+            if(response.ok){
+                response.json()
+        .then(data => {
+            for(var i = 0; i < 10; i++){
+                castInformationResults.push(data.cast[i])
+            }
+            console.log(castInformationResults);
+        })
+            } else {
+                console.log(`The fetch for ${apiUrl} was not successful`);
+            }
+        });
+}
+
+var displayCastInformation = function(){
+    console.log('Inside displayCastInformation()');
+    setTimeout(() => {
+        // local array to hold cast member names
+        var castArray = [];
+        // push first seven cast member names to array
+        for (let i = 0; i < 7; i++) {
+            cast = castInformationResults[i].name;
+            castArray.push(cast);
+        }
+        // add final item that says 'and more.'
+        castArray.push('and more.');
+        // join the items
+        castString = castArray.join(', ');
+        // return the string
+        return castString;    
+    }, 0);
 }
 
 ///// Event Listeners /////
@@ -159,4 +271,4 @@ var addToFav = function(event) {
 movieFormEl.addEventListener("submit", formSubmitHandler);
 
 // click listener for adding movie to favorites list
-mainDiv.addEventListener('click', addToFav);
+divContainer.addEventListener('click', addToFav);

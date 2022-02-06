@@ -32,25 +32,21 @@
           </nav>
     </header>
 
-   <!--Movie Search-->
-    <div class="columns is-centered mt-0 mb-5" id="id-div-search">
-        <div class="column is-half is-centered" id="id-div-search-child">
+   <!-- div container which holds search container and content display container -->
+   <div class="columns is-multiline mt-0" id="id-main">
+        <!-- div container where search takes place -->
+        <div class="column is-two-fifths mx-auto mt-6" id="id-div-search">
             <h3 class="title is-2">What would you like to watch?</h3>
-            <form class="is-flex" id = "id-search-form">
-                <input type="text" class="input is-info mr-2" placeholder="Enter your search here" id="movie-input">
-                <button class="button is-outlined is-info" type="submit" id="searchBtn">Search</button>
+            <form class="is-flex" id="id-search-form">
+                <input type="text" class="input is-info mr-2" placeholder="Enter your search here" id="id-search-input">
+                <button class="button is-outlined is-info" type="submit" id="id-search-btn">Search</button>
             </form>
         </div>
-    </div>
-
-    <main class="columns is-centered is-three-quarters" id="id-main">
-        <!-- <div class="column black-border">A column with no real purpose</div> -->
-        <div class="columns is-centered is-9 is-multiline py-4 px-6" id="id-main-div">
-        This is div#id-main-div
+        <!-- div container where dynamic HTML creation takes place -->
+        <div class="column is-full is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly py-4 px-6" id="id-div-container">
+        
         </div>
-        <!-- <div class="column black-border">Another column, same deal</div> -->
-    </main> 
-
+    </div> 
 
     <!--Related Movies-->
     <h2 class="title is-2 has-text-centered">Related Movies</h2>
