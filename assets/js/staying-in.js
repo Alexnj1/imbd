@@ -11,7 +11,8 @@ var lang = "&language=en-US"; // used in multiple API fetches
 var includeAdult = "&include_adult=false"; // no adult titles returned
 var searchResults = []; // hold movie search results. Array of objects
 var similarMoviesResults = [] // hold similar movies search results. Array of objects
-var castInformationResults = [] // hold cast information search results. Array of objects
+//var castInformationResults = [] // hold cast information search results. Array of objects
+var watchLink = "";
 
 var formSubmitHandler = function(event){
     // debugger;
@@ -24,7 +25,7 @@ var formSubmitHandler = function(event){
     castInformationResults = [];
 
     // get value from input element
-    var searchString = "Armageddon" //movieInputEl.value.trim();
+    var searchString = movieInputEl.value.trim();
     if(searchString){
         getSearchResults(searchString);
         displaySearchResults();
@@ -53,7 +54,7 @@ var getSearchResults = function(aSearchString){
                 searchResults.push(data.results[i])
             }
             // searchResults = searchResults.concat(data.results);
-            console.log(searchResults.length, searchResults);
+            // console.log(searchResults.length, searchResults);
         })
             } else {
                 console.log(`The fetch for ${apiUrl} was not successful`);
@@ -138,51 +139,11 @@ var displayMovieInformation = function(event){
     // get selected movie's id to use in pulling information from searchResults[] and other arrays
     selectedMovieId = this.getAttribute('data-movie-id');
     var movieObjectIndex = searchResults.findIndex((element) => element.id == selectedMovieId);
-    // run function to get cast information
-    getCastInformation(selectedMovieId);
-
-    // div to hold movie poster and details about the movie, cast, runtime, etc
-    var divContainerChild1 = document.createElement('div');
-    divContainerChild1.className = "columns custom-border";
-
-    // div to hold where to watch/stream
-    var divContainerChild2 = document.createElement('div');
-    divContainerChild1.className = "columns custom-border";
-
-
-    var divMoviePosterImage = document.createElement('div');
-    divMoviePosterImage.className = "column is-one-third custom-border";
-    divMoviePosterImage.innerHTML = `<figure class="image is-2by3">                            
-                                        <img src="` + getMoviePosterImage(selectedMovieId) + `" alt="Movie poster null">
-                                    </figure>`;
-
-    var divMovieInformationList = document.createElement('div');
-    divMovieInformationList.className = "column custom-border";
     
-    var blockMovieTitle = document.createElement('div');
-    blockMovieTitle.className = 'block text-color';
-    blockMovieTitle.innerText = `Title: ${searchResults[movieObjectIndex].title}`
-    var blockMoviePlot = document.createElement('div');
-    blockMoviePlot.className = 'block text-color';
-    blockMoviePlot.innerText = `Synopsis: ${searchResults[movieObjectIndex].overview}`;
-    var blockReleaseDate = document.createElement('div');
-    blockReleaseDate.className = 'block text-color';
-    blockReleaseDate.innerText = `Release Date: ${searchResults[movieObjectIndex].release_date}`;
+    // fetch cast information and store the return string in castString variable
     
+    getCastInformation(selectedMovieId, movieObjectIndex);
     
-
-    var blockMovieCast = document.createElement('div');
-    blockMovieCast.className = 'block text-color';
-    blockMovieCast.innerText = 'Cast Includes: ' + displayCastInformation();
-
-    // will need to run getSimilarMovies(movieId) to fetch api information
-    // getSimilarMovies(selectedMovieId);
-    
-
-    // append everything to divContainer
-    divMovieInformationList.append(blockMovieTitle, blockMoviePlot, blockReleaseDate, blockMovieCast);
-    divContainerChild1.append(divMoviePosterImage, divMovieInformationList);
-    divContainer.append(divContainerChild1, divContainerChild2);
 }
 
 var addToFav = function(event){
@@ -192,16 +153,20 @@ var addToFav = function(event){
     // console.log(clickedEl);
     var nearestBtn = clickedEl.closest("button.card-header-icon");
     // console.log(nearestBtn);
-    if(nearestBtn.matches("button")) {
-        console.log('You clicked a movie to add to your favorites');
-        favMovieId = nearestBtn.getAttribute("data-movie-id");
-        console.log(favMovieId);
-        //do something else for Megan
-    } else {
+    if (nearestBtn != null){
+        if(nearestBtn.matches("button")) {
+            console.log('You clicked a movie to add to your favorites');
+            favMovieId = nearestBtn.getAttribute("data-movie-id");
+            console.log(favMovieId);
+            //do something else for Megan
+        }
+    } else{
         return;
-    }
+    }  
 }
 
+// fetch similar movies from corresponding api endpoint
+// and store it in similarMoviesResults[]
 var getSimilarMovies = function(movieId){
     console.log("Inside getSimilarMovies()");
     // debugger;
@@ -224,7 +189,9 @@ var getSimilarMovies = function(movieId){
         });
 }
 
-var getCastInformation = function(movieId){
+// fetch cast information from corresponding api endpoint
+// and store it in castInformationResults[]
+var getCastInformation = function(movieId, movieObjectIndex){
     console.log('Inside getCastInformation()');
     // debugger;
     var castInformation = `/movie/${movieId}/credits?`;
@@ -235,10 +202,11 @@ var getCastInformation = function(movieId){
             if(response.ok){
                 response.json()
         .then(data => {
-            for(var i = 0; i < 10; i++){
-                castInformationResults.push(data.cast[i])
-            }
+            const castInformationResults = data.cast;
             console.log(castInformationResults);
+            var castString = displayCastInformation(castInformationResults);
+            getWatchProviders(movieId, movieObjectIndex, castString);
+
         })
             } else {
                 console.log(`The fetch for ${apiUrl} was not successful`);
@@ -246,9 +214,9 @@ var getCastInformation = function(movieId){
         });
 }
 
-var displayCastInformation = function(){
+var displayCastInformation = function(castInformationResults){
     console.log('Inside displayCastInformation()');
-    setTimeout(() => {
+    // setTimeout(() => {
         // local array to hold cast member names
         var castArray = [];
         // push first seven cast member names to array
@@ -261,9 +229,71 @@ var displayCastInformation = function(){
         // join the items
         castString = castArray.join(', ');
         // return the string
+        console.log(castString);
         return castString;    
-    }, 0);
+    // }, 2000);
 }
+
+var getWatchProviders = function (movieId, movieObjectIndex, castString){
+    console.log('inside getWatchProviders');
+    var watchProviders = `/movie/${movieId}/watch/providers?`;
+    var apiUrl = baseUrl + watchProviders + apiKey;
+    console.log(apiUrl);
+    fetch(apiUrl)
+        .then(response => {
+            if(response.ok){
+                response.json()
+        .then(data => {
+            watchLink = data.results["US"];
+            console.log(watchLink);
+            // div to hold movie poster and details about the movie, cast, runtime, etc
+            var divContainerChild1 = document.createElement('div');
+            divContainerChild1.className = "columns custom-border";
+
+            // div to hold where to watch/stream
+            var divContainerChild2 = document.createElement('div');
+            divContainerChild1.className = "columns custom-border";
+
+
+            var divMoviePosterImage = document.createElement('div');
+            divMoviePosterImage.className = "column is-one-third custom-border";
+            divMoviePosterImage.innerHTML = `<figure class="image is-2by3">                            
+                                                <img src="` + getMoviePosterImage(movieId) + `" alt="Movie poster null">
+                                            </figure>`;
+
+            var divMovieInformationList = document.createElement('div');
+            divMovieInformationList.className = "column custom-border";
+            
+            var blockMovieTitle = document.createElement('div');
+            blockMovieTitle.className = 'block text-color';
+            blockMovieTitle.innerText = `Title: ${searchResults[movieObjectIndex].title}`
+            var blockMoviePlot = document.createElement('div');
+            blockMoviePlot.className = 'block text-color';
+            blockMoviePlot.innerText = `Synopsis: ${searchResults[movieObjectIndex].overview}`;
+            var blockReleaseDate = document.createElement('div');
+            blockReleaseDate.className = 'block text-color';
+            blockReleaseDate.innerText = `Release Date: ${searchResults[movieObjectIndex].release_date}`;
+            var blockMovieCast = document.createElement('div');
+            blockMovieCast.className = 'block text-color';
+            blockMovieCast.innerText = 'Cast Includes: ' + castString;
+            var blockWatchProviders = document.createElement('div');
+            blockWatchProviders.className = 'block text-color';
+            blockWatchProviders.innerHTML = `For a link to watch providers for this film, click <a href="` + watchLink.link + `">here</a>.`;
+
+            // will need to run getSimilarMovies(movieId) to fetch api information
+            // getSimilarMovies(selectedMovieId);
+            
+            // append everything to divContainer
+            divMovieInformationList.append(blockMovieTitle, blockMoviePlot, blockReleaseDate, blockMovieCast, blockWatchProviders);
+            divContainerChild1.append(divMoviePosterImage, divMovieInformationList);
+            divContainer.append(divContainerChild1, divContainerChild2);
+        })
+            } else {
+                console.log(`The fetch for ${apiUrl} was not successful`);
+            }
+        });
+}
+
 
 ///// Event Listeners /////
 

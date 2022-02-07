@@ -87,5 +87,6 @@
 }
 
 .text-color {
-    color: rgb(240, 240, 240)
+    color: rgb(240, 240, 240);
+    font-size: 2em;
 }
