@@ -74,15 +74,15 @@ var displayGenreTitles = function(results) {
         movieDiv.appendChild(a);
 
         favoriteListEl = document.createElement("button");
-        favoriteListEl.classList.add("button");
+        favoriteListEl.classList.add("button", "favorite-btn");
         favoriteListEl.textContent = "Add to List";
       
         movieDiv.appendChild(favoriteListEl);
         genreListContainer.appendChild(movieDiv)
-    
     });
 
 }
+
 
 
 
