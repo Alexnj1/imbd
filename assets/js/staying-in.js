@@ -11,7 +11,6 @@ var lang = "&language=en-US"; // used in multiple API fetches
 var includeAdult = "&include_adult=false"; // no adult titles returned
 var searchResults = []; // hold movie search results. Array of objects
 var similarMoviesResults = [] // hold similar movies search results. Array of objects
-//var castInformationResults = [] // hold cast information search results. Array of objects
 var watchLink = "";
 
 var formSubmitHandler = function(event){
