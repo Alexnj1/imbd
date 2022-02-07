@@ -66,15 +66,6 @@ function getUpcoming(pageNumber) {
           movieResultContainer.appendChild(movieContainer);
         }
       }
-
-      //   var loadMore = document.createElement('div')
-
-      //   var loadMoreButton = document.createElement('button')
-      //   loadMoreButton.classList = ('now-playing button is-info is-rounded')
-      //   loadMoreButton.textContent = 'See More Movies'
-
-      //   loadMore.appendChild(loadMoreButton)
-      //   mainBody.appendChild(loadMore)
       sortInfo.removeAttribute("hidden");
       loadMoreButton.className = "load-more button is-info is-rounded";
       loadMoreButton.textContent = "See More Movies";
