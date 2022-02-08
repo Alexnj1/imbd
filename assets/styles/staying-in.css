@@ -1,46 +1,50 @@
-#movie-image {
+/* :root {
+    --primary: black;
+    --secondary: red;
+    --tertiary: green;
+} */
+
+/* ZERO OUT ANY USER-AGENT-ASSIGNED MARGINS, PADDINGS, ETC. */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* #movie-image {
     min-width: 200px;
-}
+} */
 
-#related-movie-img {
+/* #related-movie-img {
     max-width: 175px;
-}
+} */
 
-#movie-search {
-    border: solid 2px pink;
-}
 .imbd-logo {
     min-height: 100px;
 }
 
 #id-main {
-    border: solid 5px green;
     padding: 2vh;
     background-image: url("/assets/images/hero-img.jpg");
     background-size: contain;
 }
 
-#id-div-container {
-    border: solid 5px orange;
-    min-height: 750px;
-}
-
-#id-div-main-child-text {
-    margin: 1vh;
-    border: solid 2px black;
-}
-
 #id-div-search {
     height: auto;
-    border: solid 5px blue;
     padding: 5vh;
 }
 
-#movie-search-form {
-    border: solid 2px black;
+#id-div-search h3 {
+    color: blanchedalmond;
+}
+
+#id-search-form {
     padding: 2vh;
 }
 
+#id-div-container {
+    min-height: 750px;
+}
 
 /***** UTILITIES *****/
 .custom-border {
@@ -66,7 +70,6 @@
 }
 
 .max-height-div-container {
-    border: solid 2px green;
     max-height: 36vh;
 }
 
@@ -89,4 +92,8 @@
 .text-color {
     color: rgb(240, 240, 240);
     font-size: 2em;
+}
+
+.div-container-child-2-min-height {
+    min-height: 630px;
 }
