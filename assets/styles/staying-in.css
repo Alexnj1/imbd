@@ -26,6 +26,7 @@
 #id-main {
     padding: 2vh;
     background-image: url("/assets/images/hero-img.jpg");
+    background-attachment: fixed;
     background-size: contain;
 }
 
