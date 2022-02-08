@@ -1,0 +1,19 @@
+.movie-div {
+    box-shadow: 5px 5px 8px -4px #000000;
+    margin: 5px;
+}
+
+.image {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.movie-title {
+    font-size: 18px;
+ }
+
+ body {
+    background-image: url(../images/hero-img.jpg);
+    background-attachment: fixed;
+    min-height: 100vh;
+ }

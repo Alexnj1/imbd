@@ -75,15 +75,30 @@ var displayGenreTitles = function(results) {
 
         favoriteListEl = document.createElement("button");
         favoriteListEl.classList.add("button");
-        favoriteListEl.textContent = "Add to List";
+        favoriteListEl.textContent = "Add to Favorites ❤️";
+        favoriteListEl.addEventListener('click', () => {
+            saveFavorite(element)
+        });
       
         movieDiv.appendChild(favoriteListEl);
         genreListContainer.appendChild(movieDiv)
-    
-    });
 
+    });  
 }
 
+var saveFavorite = function(movie) {
+    let currentFavorites = localStorage.getItem('favorites')
+    currentFavorites = currentFavorites ? JSON.parse(currentFavorites) : []
+
+    let currentFavoriteIds = currentFavorites.map(function (m) {
+        return m.id
+      });
+
+    if (currentFavoriteIds.includes(movie.id)) return false;
+
+    let newFavorites = JSON.stringify(currentFavorites.concat(movie))
+    localStorage.setItem('favorites', newFavorites);
+}
 
 
 
