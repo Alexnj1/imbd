@@ -30,6 +30,13 @@ a {
     border: solid 3px black;
 }
 
+/* experiment */
+
+.movie-container:hover {
+    transition-duration: .1s;
+    backdrop-filter: blur(30px);
+}
+
 .movie-container p {
     margin: 20px;
     color: white;
@@ -40,4 +47,23 @@ a {
 .movie-poster {
     max-height: 250px;
     border-radius: 5px;
+}
+
+.error-message {
+    text-align: center;
+}
+
+.error-message img {
+    max-height: 300px;
+}
+
+.error-message h3 {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+}
+
+.error-message button  {
+    font-weight: bold;
+    font-size: 20px;
 }

@@ -140,11 +140,11 @@ function displayMovieInfo(data) {
 }
 
 function displayTheaters(data) {
+    var theaters = document.querySelector('.theaters-container')
+    theaters.textContent = ''
   for (i = 0; i < data.results.length; i++) {
     if (data.results[i].poi.url) {
       var main = document.querySelector(".interactions");
-
-      var theaters = document.querySelector('.theaters-container')
 
       var theaterContainer = document.createElement("div");
 
