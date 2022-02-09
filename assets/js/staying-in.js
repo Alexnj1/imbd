@@ -12,6 +12,7 @@ var searchResults = []; // hold movie search results. Array of objects
 var watchLink = "";
 var vidId = "";
 
+
 var formSubmitHandler = function(event){
     // prevent page from refreshing
     event.preventDefault();
@@ -33,10 +34,10 @@ var formSubmitHandler = function(event){
 }
 
 // the first fetch for results; populates searchResults[] with movie objects
-var getSearchResults = function(aSearchString){
+var getSearchResults = function(string){
     var includeAdult = "&include_adult=false"; // no adult titles returned
     var searchMovie = "/search/movie?";
-    var apiUrl = baseUrl + searchMovie + apiKey + lang + "&query=" + aSearchString + includeAdult;
+    var apiUrl = baseUrl + searchMovie + apiKey + lang + "&query=" + string + includeAdult;
      // a fetch returns a promise that resolves to the response to that request,
      // as soon as the server responds with headers, even if the server response is an HTTP error status.
     fetch(apiUrl)
@@ -143,6 +144,8 @@ var displayMovieInformation = function(){
     getCastInformation(selectedMovieId, movieObjectIndex);
 }
 
+// change the data stored locally as 'favorites' and
+// update the icon styling as well
 var amendFavoritesList = function(event) {
     var clickedEl = event.target;
     var nearestBtn = clickedEl.closest("button.card-header-icon");
@@ -150,7 +153,6 @@ var amendFavoritesList = function(event) {
         console.log("You clicked a movie to add to favorites!");
         var favMovieId = nearestBtn.getAttribute("data-movie-id");
         var favMovieObject = searchResults.find(movieObject => movieObject.id == favMovieId);
-        console.log(favMovieObject);
         let currentFavorites = localStorage.getItem('favorites');
         if(nearestBtn.innerHTML.includes('fas')){
             currentFavorites = currentFavorites ? JSON.parse(currentFavorites) : []
