@@ -6,22 +6,12 @@
 }
 
 html {
-<<<<<<< HEAD
-=======
     height: 100vh;
->>>>>>> megan/js
     background-image: url(../images/hero-img.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
 
-<<<<<<< HEAD
-.hero-div {
-    /* padding: 10%; What's the purpose of this padding? To center or push down the hero.div? */
-    position: relative;
-    top: 10vh;
-}
-=======
 .welcome-text {
     font-size: 50px;
     text-align: center;
@@ -29,4 +19,3 @@ html {
     margin: 20px;
 }
 
->>>>>>> megan/js
