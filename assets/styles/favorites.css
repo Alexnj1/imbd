@@ -3,21 +3,101 @@
     -webkit-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
     margin: 5px;
-   
+    background: none;
+    backdrop-filter: blur(10px);
+    border: solid 3px black;
+    border-radius: 15px;
+    color: white;
 }
 
 
 .image {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .movie-title {
     font-size: 18px;
- }
+    color: white;
+}
 
- body {
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button {
+    margin: 10px;
+}
+
+html {
     background-image: url(../images/hero-img.jpg);
+    background-size: cover;
     background-attachment: fixed;
-    min-height: 100vh;
- }
+    background-position: 80%;
+    height: 100vh;
+}
+
+@media screen and (max-width:1215px) {
+    .movie-div {
+        flex-direction: column;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .image {
+        margin: auto;
+        max-width: 500px;
+        max-height: 500px;
+    }
+
+    .movie-title {
+        margin: auto;
+    }
+
+    .button-container {
+        margin: auto;
+    }
+    
+    
+}
+
+@media screen and (max-width:1023px) {
+    .imbd-logo{
+        display: none;
+    }
+
+    .imbd-small {
+        display: inline;
+    }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .movie-div{
+        text-align: center;
+    }
+
+    .image {
+        margin: auto;
+    }
+
+    .button-container {
+        margin: auto;
+        justify-content: center;
+    }
+
+    
+}
+
+@media screen and (max-width:425px) {
+    .image {
+        max-width: 300px;
+        max-height: 300px;
+    }
+}

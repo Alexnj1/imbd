@@ -12,6 +12,13 @@ var searchResults = []; // hold movie search results. Array of objects
 var watchLink = "";
 var vidId = "";
 
+const myNav = document.querySelector("#navbar-menu")
+const burger = document.querySelector("#burger")
+burger.addEventListener('click', ()=> {
+    myNav.classList.toggle("is-active")
+    burger.classList.toggle("is-active")
+})
+
 
 var formSubmitHandler = function(event){
     // prevent page from refreshing
@@ -68,7 +75,7 @@ var displaySearchResults = function(){
             for(var i = 0; i < searchResults.length; i++){
                 // create card container which will hold movie title, poster, and movie plot text
                 var movieCard = document.createElement("div");
-                movieCard.className = "card column is-3 mx-6 my-3 px-2 py-2 is-shadowless background-yellow";
+                movieCard.className = "card column ";
                 // movie header holds movie title and favorites button
                 var movieHeader = document.createElement("div");
                 movieHeader.className = "card-header is-shadowless";

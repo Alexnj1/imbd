@@ -23,16 +23,18 @@
     min-height: 100px;
 }
 
-#id-main {
-    padding: 2vh;
+html {
     background-image: url(../images/hero-img.jpg);
+    background-size: cover;
     background-attachment: fixed;
-    background-size: contain;
+    background-position: 80%;
+    height: 100vh;
 }
+
 
 #id-div-search {
     height: auto;
-    padding: 5vh;
+    padding: 10px;
 }
 
 #id-div-search h3 {
@@ -41,10 +43,20 @@
 
 #id-search-form {
     padding: 2vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
 }
 
 #id-div-container {
     min-height: 750px;
+}
+
+.card {
+    background: none;
+    backdrop-filter: blur(10px);
+    border: solid 3px black;
+    border-radius: 15px;
+    color: white;
 }
 
 /***** UTILITIES *****/
@@ -97,4 +109,34 @@
 
 .div-container-child-2-min-height {
     min-height: 630px;
+}
+
+@media screen and (max-width:1023px) {
+    .imbd-logo{
+        display: none;
+    }
+
+    .imbd-small {
+        display: inline;
+    }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+}
+
+@media screen and (max-width:550px) {
+    #id-search-form {
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+}
+
+@media screen and (max-width:375px) {
+    #id-search-form {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
 }

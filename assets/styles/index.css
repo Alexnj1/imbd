@@ -19,3 +19,33 @@ html {
     margin: 20px;
 }
 
+.column {
+    padding: 0;
+}
+
+@media screen and (max-width:1023px) {
+    .imbd-logo{
+        display: none;
+    }
+
+    .imbd-small {
+        display: inline;
+    }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+}
+
+@media screen and (max-width:408px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        margin: 10px;
+    }
+}
+
