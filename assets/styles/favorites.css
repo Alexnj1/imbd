@@ -1,7 +1,11 @@
 .movie-div {
-    box-shadow: 5px 5px 8px -4px #000000;
+    box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
     margin: 5px;
+   
 }
+
 
 .image {
     max-width: 200px;

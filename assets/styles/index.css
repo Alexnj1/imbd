@@ -1,5 +1,8 @@
-.hero-div {
-    padding: 20%;
+/* ZERO OUT ANY USER-AGENT-ASSIGNED MARGINS, PADDINGS, ETC. */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -7,7 +10,6 @@ html {
     background-image: url(../images/hero-img.jpg);
     background-size: cover;
     background-attachment: fixed;
-    background-position: 80%;
 }
 
 .welcome-text {

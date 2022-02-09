@@ -29,7 +29,7 @@ function getUpcoming(pageNumber) {
             var movieContainer = document.createElement("div");
             movieContainer.classList = "movie-container";
             var movieLink = document.createElement("a");
-            movieLink.classList = "is-flex";
+            movieLink.classList = "is-flex movie-a";
             movieLink.setAttribute(
               "href",
               "./movie-page.html?movie=" +
@@ -51,14 +51,17 @@ function getUpcoming(pageNumber) {
 
             var title = document.createElement("p");
             title.textContent = data.results[i].original_title.toUpperCase();
+            title.className = 'm-title'
 
             var release = document.createElement("p");
             release.textContent =
               "Release Date: " + data.results[i].release_date;
+            release.className = 'm-release'
 
             var description = document.createElement("p");
             description.textContent =
               "Description: " + data.results[i].overview;
+            description.className = 'm-description'
 
             movieDescription.appendChild(title);
             movieDescription.appendChild(release);
@@ -128,14 +131,16 @@ function getNowPlaying(pageNumber) {
 
             var title = document.createElement("p");
             title.textContent = data.results[i].original_title.toUpperCase();
+            title.className = 'm-title'
 
             var release = document.createElement("p");
             release.textContent =
               "Release Date: " + data.results[i].release_date;
-
+            release.className = 'm-release'
             var description = document.createElement("p");
             description.textContent =
               "Description: " + data.results[i].overview;
+              description.className = 'm-description'
 
             movieDescription.appendChild(title);
             movieDescription.appendChild(release);

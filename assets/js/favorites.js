@@ -1,3 +1,11 @@
+const myNav = document.querySelector("#navbar-menu")
+const burger = document.querySelector("#burger")
+burger.addEventListener('click', ()=> {
+    myNav.classList.toggle("is-active")
+    burger.classList.toggle("is-active")
+})
+
+
 var getFavorites = function() {
     var favoritesListEl = document.getElementById("favorites-list");
     currentFavorites = localStorage.getItem('favorites');

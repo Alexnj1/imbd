@@ -13,20 +13,20 @@
 </head>
 <body>
   <header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation" id="nav-bar">
         <div class="navbar-brand">
           <a class="navbar-item" href="index.html">
             <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
           </a>
       
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a role="button" id="burger" class="navbar-burger">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+        </a>
         </div>
       
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbar-menu" class="navbar-menu">
           <div class="navbar-start">
             <a href="index.html" class="navbar-item">
               Home
@@ -56,7 +56,7 @@
         </h3>
         <br>
         <br>
-    <div class="dropdown has-text-centered p-2">
+    <div class="dropdown has-text-centered p-1">
         <div class="dropdown-trigger">
           <button class="button drop-down-button" aria-haspopup="true" aria-controls="dropdown-menu">
             <span class="is-size-3 is-family-monospace"> 🎬 Pick a Genre</span>
