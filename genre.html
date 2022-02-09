@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Genres</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/styles/staying-in.css">
+    <link rel="stylesheet" href="assets/styles/sitewide.css">
+    <link rel="stylesheet" href="assets/styles/genres.css">
+    <script src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation" id="nav-bar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="index.html">
+            <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
+          </a>
+      
+          <a role="button" id="burger" class="navbar-burger">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        </div>
+      
+        <div id="navbar-menu" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="index.html" class="navbar-item">
+              Home
+            </a>
+      
+            <a href="staying-in.html" class="navbar-item">
+              Staying In
+            </a>
+      
+            <a href="going-out.html" class="navbar-item">
+                Going Out
+              </a>
+            <a href="genre.html" class="navbar-item">
+                Genres
+            </a>
+            <a href="favorites.html" class="navbar-item">
+                Favorites
+            </a>
+          </div>
+        </div>
+      </nav>
+</header>
+    
+    <div class = "container">
+        <h3 class="title has-text-centered is-family-monospace has-text-white pt-6">
+           What kind of movie are you in the mood for?🍿
+        </h3>
+        <br>
+        <br>
+    <div class="dropdown has-text-centered p-1">
+        <div class="dropdown-trigger">
+          <button class="button drop-down-button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span class="is-size-3 is-family-monospace"> 🎬 Pick a Genre</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+          <div class="dropdown-menu " id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item" id="28" onclick="selectGenre('Action', 28)">
+                Action
+              </a>
+              <a href="#" class="dropdown-item" id="12" onclick="selectGenre('Adventure', 12)">
+                Adventure
+              </a>
+              <a href="#" class="dropdown-item" id="16" onclick="selectGenre('Animation', 16)">
+                Animation
+              </a>
+              <a href="#" class="dropdown-item" id="35" onclick="selectGenre('Comedy', 35)">
+                Comedy
+              </a>
+              <a href="#" class="dropdown-item" id="80" onclick="selectGenre('Crime', 80)">
+                Crime
+              </a>
+              <a href="#" class="dropdown-item" id="99" onclick="selectGenre('Documentary', 99)">
+                Documentary
+              </a>
+              <a href="#" class="dropdown-item" id="18" onclick="selectGenre('Drama', 18)">
+                Drama
+              </a>
+              <a href="#" class="dropdown-item" id="10751" onclick="selectGenre('Family', 10751)">
+                Family
+              </a>
+              <a href="#" class="dropdown-item" id="14" onclick="selectGenre('Fantasy', 14)">
+                Fantasy
+              </a>
+              <a href="#" class="dropdown-item" id="36" onclick="selectGenre('History', 36)">
+                History
+              </a>
+              <a href="#" class="dropdown-item" id="27" onclick="selectGenre('Horror', 27)">
+                Horror
+              </a>
+              <a href="#" class="dropdown-item" id="10402" onclick="selectGenre('Music', 10402)">
+                Music
+              </a>
+              <a href="#" class="dropdown-item" id="9648" onclick="selectGenre('Mystery', 9648)">
+                Mystery
+              </a>
+              <a href="#" class="dropdown-item" id="10749" onclick="selectGenre('Romance', 10749)">
+                Romance
+              </a>
+              <a href="#" class="dropdown-item" id="878" onclick="selectGenre('Science Fiction', 878)">
+                Science Fiction
+              </a>
+              <a href="#" class="dropdown-item" id="10770" onclick="selectGenre('TV Movie', 10770)">
+                TV Movie
+              </a>
+              <a href="#" class="dropdown-item" id="53" onclick="selectGenre('Thriller', 53)">
+                Thriller
+              </a>
+              <a href="#" class="dropdown-item" id="10752" onclick="selectGenre('War', 10752)">
+                War
+              </a>
+              <a href="#" class="dropdown-item" id="37" onclick="selectGenre('Western', 37)">
+                Western
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+<!--Movie Genre List-->
+<section class="panel pt-4">
+    <div class="columns">
+        <div id="genre-list" class="column movie-info card is-invisible">
+        </div>
+        
+    </div>
+</section>
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="assets/js/genre.js"></script>
+</body>
+</html>

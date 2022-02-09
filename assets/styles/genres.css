@@ -1,0 +1,42 @@
+.movie-title {
+   font-size: 18px;
+}
+
+.image {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.dropdown {
+    width: 100%;
+}
+
+.dropdown-trigger {
+    width: 100%;
+}
+.drop-down-button {
+    width: 75%;
+}
+
+.dropdown-menu {
+    width: 75%;
+    margin-left: 13%;
+}
+
+body {
+    background-image: url(../images/hero-img.jpg);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.movie-div {
+    box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
+    margin: 20px;
+}
+
+.fav-button {
+    transition: all 0.5s;
+    cursor: pointer;
+}

@@ -3,19 +3,18 @@ var pageNumber = 1;
 var mainBody = document.querySelector("main");
 
 var movieResultContainer = document.querySelector(".movie-result-container");
-var sortInfo = document.querySelector('.sort-info')
+var sortInfo = document.querySelector(".sort-info");
 
 var upcomingButton = document.querySelector(".upcoming");
 var nowPlayingButton = document.querySelector(".now-playing");
 
 var loadMoreButton = document.querySelector(".load-more");
 
-
 function getUpcoming(pageNumber) {
   fetch(
     "https://api.themoviedb.org/3/movie/upcoming?api_key=" +
       apiKey +
-      "&language=en-US&page=" +
+      "&language=en-US&region=us&page=" +
       pageNumber
   ).then(function (response) {
     response.json().then(function (data) {
@@ -24,16 +23,24 @@ function getUpcoming(pageNumber) {
 
       for (i = 0; i < data.results.length; i++) {
         var movieDate = data.results[i].release_date;
+        var movieName = data.results[i].original_title;
         if (moment().isBefore(movieDate)) {
           var movieContainer = document.createElement("div");
           movieContainer.classList = "movie-container";
           var movieLink = document.createElement("a");
           movieLink.classList = "is-flex";
-          movieLink.setAttribute("src", "");
+          movieLink.setAttribute(
+            "href",
+            "./movie-page.html?movie=" + movieName.replace(/\s+/g, '-').toLowerCase() + '&id=' + data.results[i].id
+          );
+          movieLink.setAttribute("target", "_blank");
 
           var poster = document.createElement("img");
           poster.className = "movie-poster";
-          poster.setAttribute("src", 'http://image.tmdb.org/t/p/w500/' + data.results[i].poster_path);
+          poster.setAttribute(
+            "src",
+            "http://image.tmdb.org/t/p/w500/" + data.results[i].poster_path
+          );
 
           var movieDescription = document.createElement("div");
           movieDescription.className = "movie-description";
@@ -68,7 +75,7 @@ function getUpcoming(pageNumber) {
 
       //   loadMore.appendChild(loadMoreButton)
       //   mainBody.appendChild(loadMore)
-      sortInfo.removeAttribute('hidden')
+      sortInfo.removeAttribute("hidden");
       loadMoreButton.className = "load-more button is-info is-rounded";
       loadMoreButton.textContent = "See More Movies";
     });
@@ -79,7 +86,7 @@ function getNowPlaying(pageNumber) {
   fetch(
     "https://api.themoviedb.org/3/movie/now_playing?api_key=" +
       apiKey +
-      "&language=en-US&page=" +
+      "&language=en-US&region=us&page=" +
       pageNumber
   ).then(function (response) {
     response.json().then(function (data) {
@@ -88,47 +95,54 @@ function getNowPlaying(pageNumber) {
 
       for (i = 0; i < data.results.length; i++) {
         var movieDate = data.results[i].release_date;
-        var movieName = data.results[i].original_title
+        var movieName = data.results[i].original_title;
 
-        if (moment(movieDate).isAfter(moment().subtract(45, 'days').calendar())) {
-            var movieContainer = document.createElement("div");
-            movieContainer.classList = "movie-container";
-            var movieLink = document.createElement("a");
-            movieLink.classList = "is-flex";
-            movieLink.setAttribute("href", "./movie-page.html?movie=" + movieName.replace(/\s+/g, ''));
-            movieLink.setAttribute("target", "_blank")
+        if (
+          moment(movieDate).isAfter(moment().subtract(45, "days").calendar())
+        ) {
+          var movieContainer = document.createElement("div");
+          movieContainer.classList = "movie-container";
+          var movieLink = document.createElement("a");
+          movieLink.classList = "is-flex";
+          movieLink.setAttribute(
+            "href",
+            "./movie-page.html?movie=" + movieName.replace(/\s+/g, '-').toLowerCase() + '&id=' + data.results[i].id
+          );
+          movieLink.setAttribute("target", "_blank");
 
-            var poster = document.createElement("img");
-            poster.className = "movie-poster";
-            poster.setAttribute("src", "./assets/images/imbd-logos.jpeg");
-            poster.setAttribute('src', 'http://image.tmdb.org/t/p/w500/' + data.results[i].poster_path)
+          var poster = document.createElement("img");
+          poster.className = "movie-poster";
+          poster.setAttribute("src", "./assets/images/imbd-logos.jpeg");
+          poster.setAttribute(
+            "src",
+            "http://image.tmdb.org/t/p/w500/" + data.results[i].poster_path
+          );
 
-            var movieDescription = document.createElement("div");
-            movieDescription.className = "movie-description";
+          var movieDescription = document.createElement("div");
+          movieDescription.className = "movie-description";
 
-            var title = document.createElement("p");
-            title.textContent = data.results[i].original_title.toUpperCase();
+          var title = document.createElement("p");
+          title.textContent = data.results[i].original_title.toUpperCase();
 
-            var release = document.createElement("p");
-            release.textContent = "Release Date: " + data.results[i].release_date;
+          var release = document.createElement("p");
+          release.textContent = "Release Date: " + data.results[i].release_date;
 
-            var description = document.createElement("p");
-            description.textContent = "Description: " + data.results[i].overview;
+          var description = document.createElement("p");
+          description.textContent = "Description: " + data.results[i].overview;
 
-            movieDescription.appendChild(title);
-            movieDescription.appendChild(release);
-            movieDescription.appendChild(description);
+          movieDescription.appendChild(title);
+          movieDescription.appendChild(release);
+          movieDescription.appendChild(description);
 
-            movieLink.appendChild(poster);
-            movieLink.appendChild(movieDescription);
+          movieLink.appendChild(poster);
+          movieLink.appendChild(movieDescription);
 
-            movieContainer.appendChild(movieLink);
+          movieContainer.appendChild(movieLink);
 
-            movieResultContainer.appendChild(movieContainer); 
+          movieResultContainer.appendChild(movieContainer);
         }
-        
       }
-      sortInfo.removeAttribute('hidden')
+      sortInfo.removeAttribute("hidden");
       loadMoreButton.className = "load-more button is-info is-rounded";
       loadMoreButton.textContent = "See More Movies";
     });
@@ -153,7 +167,7 @@ upcomingButton.addEventListener("click", function () {
   movieResultContainer.textContent = "";
   getUpcoming();
   loadMoreUpcoming();
-  nowPlayingButton.disabled = false
+  nowPlayingButton.disabled = false;
   upcomingButton.disabled = true;
 });
 
@@ -161,6 +175,6 @@ nowPlayingButton.addEventListener("click", function () {
   movieResultContainer.textContent = "";
   getNowPlaying();
   loadMoreNowplaying();
-  nowPlayingButton.disabled = true
+  nowPlayingButton.disabled = true;
   upcomingButton.disabled = false;
 });
