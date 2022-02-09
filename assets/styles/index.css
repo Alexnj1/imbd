@@ -1,13 +1,18 @@
-.hero-div {
-    padding: 20%;
+/* ZERO OUT ANY USER-AGENT-ASSIGNED MARGINS, PADDINGS, ETC. */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-    height: 100vh;
-    /* background-image: url(/Users/bootcamp/Desktop/projects/bootcamp-group-project/assets/images/hero-img.jpg); */
     background-image: url(../images/hero-img.jpg);
     background-size: cover;
     background-attachment: fixed;
-    background-position: 80%;
 }
 
+.hero-div {
+    /* padding: 10%; What's the purpose of this padding? To center or push down the hero.div? */
+    position: relative;
+    top: 10vh;
+}
