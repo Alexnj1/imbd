@@ -1,11 +1,100 @@
-#movie-image {
-    min-width: 200px;
+/* :root {
+    --primary: black;
+    --secondary: red;
+    --tertiary: green;
+} */
+
+/* ZERO OUT ANY USER-AGENT-ASSIGNED MARGINS, PADDINGS, ETC. */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#related-movie-img {
+/* #movie-image {
+    min-width: 200px;
+} */
+
+/* #related-movie-img {
     max-width: 175px;
-}
+} */
 
 .imbd-logo {
     min-height: 100px;
+}
+
+#id-main {
+    padding: 2vh;
+    background-image: url("/assets/images/hero-img.jpg");
+    background-attachment: fixed;
+    background-size: contain;
+}
+
+#id-div-search {
+    height: auto;
+    padding: 5vh;
+}
+
+#id-div-search h3 {
+    color: blanchedalmond;
+}
+
+#id-search-form {
+    padding: 2vh;
+}
+
+#id-div-container {
+    min-height: 750px;
+}
+
+/***** UTILITIES *****/
+.custom-border {
+    border: solid 3px yellow;
+}
+
+.poster-size {
+    height: 17vw;
+    width: 12vw;
+}
+
+.display-it-flex {
+    display: flex;
+}
+
+.div-container-max-height {
+    max-height: 750px;
+}
+
+.max-width-fifty-percent {
+    max-width: 50%;
+    height: auto;
+}
+
+.max-height-div-container {
+    max-height: 36vh;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+.show-overflow-on-hover:hover {
+    overflow: scroll;
+}
+
+.hand-pointer:hover {
+    cursor: pointer;
+}
+
+.background-yellow {
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c)
+}
+
+.text-color {
+    color: rgb(240, 240, 240);
+    font-size: 2em;
+}
+
+.div-container-child-2-min-height {
+    min-height: 630px;
 }
