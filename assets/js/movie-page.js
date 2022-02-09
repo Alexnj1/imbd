@@ -101,7 +101,7 @@ function displayMovieInfo(data) {
   moviePageLink.className = 'a-1'
 
   var moviePageButton = document.createElement("button");
-  moviePageButton.classList = "button is-info is-rounded is-medium";
+  moviePageButton.classList = "button is-info is-rounded is-normal";
   moviePageButton.textContent = "Visit Movie Homepage";
 
   if (data.homepage) {
@@ -117,7 +117,7 @@ function displayMovieInfo(data) {
   moreInfoLink.className = 'a-2'
 
   var moreInfoButton = document.createElement("button");
-  moreInfoButton.classList = "button is-info is-rounded is-medium";
+  moreInfoButton.classList = "button is-info is-rounded is-normal";
   moreInfoButton.textContent = "More Info ...";
 
   moreInfoLink.appendChild(moreInfoButton);
@@ -127,7 +127,7 @@ function displayMovieInfo(data) {
   theaterLink.className = 'a-3'
 
   var theaterButton = document.createElement("button");
-  theaterButton.classList = "button is-info is-rounded is-medium theaters";
+  theaterButton.classList = "button is-info is-rounded is-normal theaters";
   theaterButton.textContent = "Theaters in your area";
 
   theaterLink.appendChild(theaterButton);
