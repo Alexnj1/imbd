@@ -4,6 +4,13 @@ var mainBody = document.querySelector("main");
 var queryString = document.location.search;
 movieId = queryString.split("=")[2];
 
+const myNav = document.querySelector("#navbar-menu")
+const burger = document.querySelector("#burger")
+burger.addEventListener('click', ()=> {
+    myNav.classList.toggle("is-active")
+    burger.classList.toggle("is-active")
+})
+
 // Accessing all needed data
 
 function getLocation() {

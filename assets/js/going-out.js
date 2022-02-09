@@ -10,6 +10,13 @@ var nowPlayingButton = document.querySelector(".now-playing");
 
 var loadMoreButton = document.querySelector(".load-more");
 
+const myNav = document.querySelector("#navbar-menu")
+const burger = document.querySelector("#burger")
+burger.addEventListener('click', ()=> {
+    myNav.classList.toggle("is-active")
+    burger.classList.toggle("is-active")
+})
+
 function getUpcoming(pageNumber) {
   fetch(
     "https://api.themoviedb.org/3/movie/upcoming?api_key=" +
