@@ -63,32 +63,41 @@ var displayGenreTitles = function(results) {
         movieImg.classList.add("image");
         movieDiv.appendChild(movieImg);
 
+        var titleDescription = document.createElement('div')
+        titleDescription.className = 'title-description'
+
         genreTitle = document.createElement("div");
         genreTitle.textContent = element.title;
-        genreTitle.classList.add("column", "movie-title", "title", "is-3");
-        movieDiv.appendChild(genreTitle);
+        genreTitle.classList.add("column", "movie-title", "title");
+        titleDescription.appendChild(genreTitle);
 
         genreDescription = document.createElement("p");
         genreDescription.textContent = element.overview;
         genreDescription.classList.add("column", "movie-info");
-        movieDiv.appendChild(genreDescription);
+        titleDescription.appendChild(genreDescription);
+
+        movieDiv.appendChild(titleDescription)
+
+        var buttonContainer = document.createElement('div')
+        buttonContainer.className = 'button-container'
 
         a = document.createElement("a");
         a.setAttribute('href', "https://www.themoviedb.org/movie/" + element.id + "-" + element.title + "?language=en-US");
         a.target = '_blank';
         a.innerText = 'More Info';
-        a.classList.add("button", "mr-3", "is-info");
-        movieDiv.appendChild(a);
+        a.classList.add("button", "mr-3", "is-info", "is-rounded");
+        buttonContainer.appendChild(a);
 
         favoriteListEl = document.createElement("button");
-        favoriteListEl.classList.add("button", "fav-button", "is-danger");
+        favoriteListEl.classList.add("button", "fav-button", "is-danger", "is-rounded");
         
         favoriteListEl.textContent = "Add to Favorites";
         favoriteListEl.addEventListener('click', () => {
             saveFavorite(element)
         });
       
-        movieDiv.appendChild(favoriteListEl);
+        buttonContainer.appendChild(favoriteListEl);
+        movieDiv.appendChild(buttonContainer)
         genreListContainer.appendChild(movieDiv)
 
     });  

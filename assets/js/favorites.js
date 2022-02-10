@@ -35,23 +35,26 @@ var getFavorites = function() {
         genreDescription.classList.add("column", "movie-info");
         movieDiv.appendChild(genreDescription);
 
+        var buttonContainer = document.createElement('div')
+        buttonContainer.className = 'button-container'
+
         a = document.createElement("a");
         a.setAttribute('href', "https://www.themoviedb.org/movie/" + element.id + "-" + element.title + "?language=en-US");
         a.target = '_blank';
         a.innerText = 'More Info';
-        a.classList.add("button", "mr-3");
-        movieDiv.appendChild(a);
+        a.classList = ("button is-rounded is-info");
+        buttonContainer.appendChild(a);
 
         removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove From Favorites 💔";
-        removeBtn.classList.add("button");
+        removeBtn.classList = ("button is-rounded is-info");
         removeBtn.addEventListener('click', () => {
             removeFavorite(element)
         })
 
 
-
-        movieDiv.appendChild(removeBtn);
+        buttonContainer.appendChild(removeBtn)
+        movieDiv.appendChild(buttonContainer);
         favoritesListEl.appendChild(movieDiv);
 
     });  

@@ -1,12 +1,216 @@
-#movie-image {
-    min-width: 200px;
+:root {
+    --text-color: white;
 }
 
-#related-movie-img {
-    max-width: 175px;
+/* ZERO OUT ANY USER-AGENT-ASSIGNED MARGINS, PADDINGS, ETC. */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.imbd-logo {
-    min-height: 100px;
+html {
+    background-image: url(../images/hero-img.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
+    height: 100vh;
+}
+
+#id-div-search {
+    height: auto;
+    padding: 10px;
+}
+
+#id-div-search h3 {
+    text-align: center;
+}
+
+#id-search-form {
+    padding: 2vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+#id-div-container {
+    min-height: 750px;
+}
+
+#id-div-movie-poster {
+    width: 100%;
+}
+
+#id-div-movie-information-list {
+    flex-direction: column;
+}
+
+#id-iframe {
+    width: 100%;
+    min-height: 330px;
+}
+
+.movie-card {
+    max-height: fit-content;
+}
+
+.card-header {
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.icon-text {
+    font-size: 1.0em;
+    justify-content: center;
+}
+
+.poster-and-plot {
+    max-height: fit-content;
+    flex-direction: column;
+    align-items: center;
+}
+
+.poster {
+    width: 100%;
+}
+
+.block {
+    font-size: 1.0em;
+}
+
+
+/***** MEDIA QUERIES *****/
+@media screen and (max-width:1023px) {
+    .imbd-logo{
+        display: none;
+    }
+
+    .imbd-small {
+        display: inline;
+    }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+}
+
+/* from tablet onwards */
+@media screen and (min-width: 769px){
+    #id-div-search {
+       min-width: 80%;
+       margin-top: 1em;
+    }
+
+    .icon-text {
+        font-size: 1.2em;
+    }
+
+    .block {
+        font-size: 1.2em;
+        padding: 0.75rem;
+    }
+
+    #id-div-container-child {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #id-div-movie-poster {
+        width: 90%;
+    }
+
+    #id-iframe {
+        min-height: 500px;
+    }
+}
+
+/* from desktop onwards */
+@media screen and (min-width: 1024px){
+    #id-div-search {
+        min-width: 60%;
+    }
+
+    #id-div-container-child {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #id-div-movie-poster {
+        max-width: 33%;
+    }
+
+    .block {
+        padding-top: 0;
+    }
+
+    #id-iframe {
+        min-height: 600px;
+    }
+}
+
+/* from widescreen onwards */
+@media screen and (min-width: 1216px){
+    #id-div-search {
+        min-width: 50%;
+    }
+    
+    .card-header {
+        flex-direction: row;
+    }
+
+    .title-text {
+        font-size: 0.7em;
+        padding: 0;
+        margin: 0;
+    }
+
+    .icon-text {
+        font-size: 0.7em;
+        justify-content: center;
+    }
+
+    .movie-card {
+        max-height: 45vh;
+    }
+
+    .poster-and-plot {
+        flex-direction: row;
+        align-items: flex-start;
+        height: 28vh;
+    }
+
+    .poster {
+        min-width: 50%;
+        max-height: 28vh;
+    }
+
+    .plot {
+        height: 27vh;
+        padding: 1em;
+        padding-top: 0;
+        font-size: 0.9em;
+        text-align: justify;
+        overflow: hidden;
+    }
+}
+
+/***** UTILITIES *****/
+.handle-overflow:hover {
+    overflow-y: scroll;
+}
+
+.hand-pointer:hover {
+    cursor: pointer;
+}
+
+.text-color {
+    color: var(--text-color);
+}
+
+.card-background-transparent-blur {
+    background: none;
+    backdrop-filter: blur(10px);
 }
 

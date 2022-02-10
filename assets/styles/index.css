@@ -1,5 +1,8 @@
-.hero-div {
-    padding: 20%;
+/* ZERO OUT ANY USER-AGENT-ASSIGNED MARGINS, PADDINGS, ETC. */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -7,7 +10,6 @@ html {
     background-image: url(../images/hero-img.jpg);
     background-size: cover;
     background-attachment: fixed;
-    background-position: 80%;
 }
 
 .welcome-text {
@@ -20,4 +22,34 @@ html {
 .navbar-burger span {
     width: 40px;
     height: 1px;
+}
+
+.column {
+    padding: 0;
+}
+
+@media screen and (max-width:1023px) {
+    .imbd-logo{
+        display: none;
+    }
+
+    .imbd-small {
+        display: inline;
+    }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+}
+
+@media screen and (max-width:408px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        margin: 10px;
+    }
 }
