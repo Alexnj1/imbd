@@ -81,7 +81,7 @@ html {
 }
 
 .button {
-    min-width: 300px;
+    min-width: 200px;
     margin: 10px;
 }
 
@@ -111,3 +111,132 @@ a {
     top: 80px;
 }
 
+
+@media screen and (max-width:1400px) {
+    .movie-container {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .movie-poster {
+        position: relative;
+        max-height: 1000px;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .links {
+        margin: auto;
+    }
+
+    .a-1 {
+        position: static;
+    }
+    
+    .a-2 {
+        position: static;
+    }
+    
+    .a-3 {
+        position: static;
+    }
+    
+}
+
+@media screen and (max-width:1023px) {
+    .imbd-logo{
+        display: none;
+    }
+
+    .imbd-small {
+        display: inline;
+    }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .interactions {
+        flex-direction: column;
+    }
+
+    .movie-container {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:585px) {
+    .movie-poster {
+        max-height: 750px;
+        max-width: 400px;
+    }
+    
+    .movie-info h3 {
+        font-size: 55px;
+    }
+}
+
+@media screen and (max-width:445px) {
+    .movie-poster {
+        max-height: 550px;
+        max-width: 300px;
+        margin: auto;
+    }
+
+    .movie-info h3 {
+        font-size: 35px;
+        padding-top: 25px;
+    }
+
+    .movie-info {
+        margin: auto;
+    }
+
+    .theater-info {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:385px) {
+    .movie-container {
+        padding: 10px;
+        border: 0;
+
+    }
+    
+    .movie-poster {
+        max-height: 550px;
+        max-width: 200px;
+        margin: auto;
+    }
+
+    
+
+    p {
+        font-size: 20px;
+    }
+
+    a {
+        margin: 0;
+    }
+
+    .button {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .button {
+        padding: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

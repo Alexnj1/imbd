@@ -1,10 +1,46 @@
-.movie-title {
-   font-size: 18px;
+html {
+    height: 100vh;
+    background-image: url(../images/hero-img.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.page-title {
+    font-size: 35px;
+    margin: 5vw;
+}
+
+.pick {
+    font-size: 30px;
 }
 
 .image {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
+    /* margin: auto; */
+    margin: 20px;
+}
+
+.movie-title {
+   font-size: 50px;
+   -webkit-line-clamp: 1;
+}
+
+.movie-info {
+    color: white;
+    font-size: 20px;
+}
+
+.title-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 5vw 10px;
 }
 
 .dropdown {
@@ -23,20 +59,81 @@
     margin-left: 13%;
 }
 
-body {
-    background-image: url(../images/hero-img.jpg);
-    background-attachment: fixed;
-    min-height: 100vh;
+.title {
+    text-align: center;
+    color: white;
 }
 
 .movie-div {
     box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
     -webkit-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
-    margin: 20px;
+    margin: 20px 100px;
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: none;
+    border: solid 3px black;
+
 }
 
 .fav-button {
     transition: all 0.5s;
     cursor: pointer;
+}
+
+@media screen and (max-width:1023px) {
+    .imbd-logo{
+        display: none;
+    }
+
+    .imbd-small {
+        display: inline;
+    }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+
+    .single-plot, .single-release, .single-cast, .single-providers {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .movie-div {
+        flex-direction: column;
+    }
+
+    .image {
+        margin: auto;
+        height: 600px;
+    }
+
+    .button-container {
+        margin: auto;
+        align-items: center;    
+    }
+
+    .button {
+        margin: 20px 0 10px !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .movie-div {
+        margin: 20px 10vw;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .movie-div {
+        margin: 20px 5vw;
+    }
+
+    .pick {
+        font-size: 20px;
+    }
 }

@@ -9,24 +9,33 @@
     box-sizing: border-box;
 }
 
-.imbd-logo {
-    min-height: 100px;
+/* #movie-image {
+    min-width: 200px;
+} */
+
+/* #related-movie-img {
+    max-width: 175px;
+} */
+
+
+html {
+    background-image: url(../images/hero-img.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
+    height: 100vh;
 }
 
-#id-main {
-    padding: 2vh;
-    background-image: url(../images/hero-img.jpg);
-    background-attachment: fixed;
-    background-size: contain;
-}
 
 #id-div-search {
     height: auto;
-    padding: 5vh;
+    padding: 10px;
 }
 
 #id-search-form {
     padding: 2vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
 }
 
 #id-div-container {
