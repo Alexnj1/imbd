@@ -52,39 +52,38 @@ html {
     width: 100%;
 }
 
+#id-div-search h3 {
+    text-align: center;
+}
 
-    #id-div-search h3 {
-        text-align: center;
-    }
-    
-    .movie-card {
-        max-height: fit-content;
-    }
+.movie-card {
+    max-height: fit-content;
+}
 
-    .card-header {
-        flex-direction: column;
-        align-items: center;
-        font-size: 1.5em;
-    }
+.card-header {
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+}
 
-    .icon-text {
-        font-size: 1.0em;
-        justify-content: center;
-    }
-  
-    .poster-and-plot {
-        max-height: fit-content;
-        flex-direction: column;
-        align-items: center;
-    }
+.icon-text {
+    font-size: 1.0em;
+    justify-content: center;
+}
 
-    .poster {
-        width: 100%;
-    }
+.poster-and-plot {
+    max-height: fit-content;
+    flex-direction: column;
+    align-items: center;
+}
 
-    #id-iframe {
-        min-height: 270px;
-    }
+.poster {
+    width: 100%;
+}
+
+#id-iframe {
+    min-height: 270px;
+}
 
 /***** MEDIA QUERIES *****/
 
