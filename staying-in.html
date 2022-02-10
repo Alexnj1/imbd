@@ -13,29 +13,46 @@
 <body>
     <!--Nav Bar with movie list, home page, and going out link-->
     <header>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-              <a class="navbar-item" href="index.html"><img src="assets/images/imbd-logos_transparent.png" class="imbd-logo"></a>
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+      <nav class="navbar" role="navigation" aria-label="main navigation" id="nav-bar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="index.html">
+            <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
+            <img hidden src="./assets/images/imbd-small.png" class="imbd-small" alt="imbd-logo">
+          </a>
+      
+          <a role="button" id="burger" class="navbar-burger">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        </div>
+      
+        <div id="navbar-menu" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="index.html" class="navbar-item">
+              Home
+            </a>
+      
+            <a href="staying-in.html" class="navbar-item">
+              Staying In
+            </a>
+      
+            <a href="going-out.html" class="navbar-item">
+                Going Out
               </a>
-            </div>
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <a href="index.html" class="navbar-item">Home</a>
-                <a href="staying-in.html" class="navbar-item">Staying In</a>
-                <a href="going-out.html" class="navbar-item">Going Out</a>
-                <a href="genre.html" class="navbar-item">Genres</a>
-                <a href="favorites.html" class="navbar-item">Favorites</a>
-              </div>
-            </div>
-          </nav>
+            <a href="genre.html" class="navbar-item">
+                Genres
+            </a>
+            <a href="favorites.html" class="navbar-item">
+                Favorites
+            </a>
+          </div>
+        </div>
+      </nav>
     </header>
 
    <!-- div container which holds search container and content display container -->
-   <div class="columns is-multiline mt-0" id="id-main">
+   <div class="is-multiline mt-0" id="id-main">
         <!-- div container where search takes place -->
         <div class="column mx-auto" id="id-div-search"> <!--is-two-fifths mt-6-->
             <h3 class="title is-2 text-color">What would you like to watch?</h3>
@@ -45,7 +62,7 @@
             </form>
         </div>
         <!-- div container where dynamic HTML creation takes place -->
-        <div class="column is-full is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly py-4 px-6" id="id-div-container">
+        <div class="column is-full is-flex is-flex-direction-column is-flex-wrap-wrap is-justify-content-space-evenly" id="id-div-container">
         
         </div>
     </div> 

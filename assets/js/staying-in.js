@@ -19,6 +19,13 @@ var searchResults = []; // hold movie search results. Array of objects
 var watchLink = '';
 var vidId = '';
 
+const myNav = document.querySelector("#navbar-menu")
+const burger = document.querySelector("#burger")
+burger.addEventListener('click', ()=> {
+    myNav.classList.toggle("is-active")
+    burger.classList.toggle("is-active")
+})
+
 
 var formSubmitHandler = function(event){
     // prevent page from refreshing
@@ -124,9 +131,10 @@ var displaySearchResults = function(){
                 moviePlot.className = 'plot handle-overflow card-content text-color';
     
                 // append elements to their respective containers
-                movieHeader.append(movieTitle, addToFavBtn);
-                divPosterAndPlot.append(moviePoster, moviePlot);
-                movieCard.append(movieHeader, divPosterAndPlot);
+                
+                plot.append(moviePlot);
+                movieHeader.append(movieTitle, moviePlot, addToFavBtn);
+                movieCard.append(moviePoster, movieHeader);
                 divContainer.append(movieCard);
             }
         }, 500);
@@ -319,16 +327,16 @@ var getWatchProviders = function (movieId, movieObjectIndex, castString){
             // divs that are classed as Bulma block and that hold the miscellaneous movie info
             // i.e. title, synopsis, release date, cast, and link to where the movie can be watched
             var blockMovieTitle = document.createElement('div');
-            blockMovieTitle.className = 'block text-color';
-            blockMovieTitle.innerText = `Title: ${searchResults[movieObjectIndex].title}`
+            blockMovieTitle.className = 'single-title';
+            blockMovieTitle.innerText = `${searchResults[movieObjectIndex].title}`
             var blockMoviePlot = document.createElement('div');
-            blockMoviePlot.className = 'block text-color';
+            blockMoviePlot.className = 'single-plot';
             blockMoviePlot.innerText = `Synopsis: ${searchResults[movieObjectIndex].overview}`;
             var blockReleaseDate = document.createElement('div');
-            blockReleaseDate.className = 'block text-color';
+            blockReleaseDate.className = 'single-release';
             blockReleaseDate.innerText = `Release Date: ${searchResults[movieObjectIndex].release_date}`;
             var blockMovieCast = document.createElement('div');
-            blockMovieCast.className = 'block text-color';
+            blockMovieCast.className = 'single-cast';
             blockMovieCast.innerText = 'Cast Includes: ' + castString;
             var blockWatchProviders = document.createElement('div');
             blockWatchProviders.className = 'block text-color';

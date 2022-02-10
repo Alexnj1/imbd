@@ -44,7 +44,6 @@ function getUpcoming(pageNumber) {
                 "&id=" +
                 data.results[i].id
             );
-            movieLink.setAttribute("target", "_blank");
 
             var poster = document.createElement("img");
             poster.className = "movie-poster";
@@ -123,7 +122,6 @@ function getNowPlaying(pageNumber) {
                 "&id=" +
                 data.results[i].id
             );
-            movieLink.setAttribute("target", "_blank");
 
             var poster = document.createElement("img");
             poster.className = "movie-poster";

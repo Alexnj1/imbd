@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Genres</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/styles/staying-in.css">
+    <!-- <link rel="stylesheet" href="assets/styles/staying-in.css"> -->
     <link rel="stylesheet" href="assets/styles/sitewide.css">
     <link rel="stylesheet" href="assets/styles/genres.css">
     <script src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
@@ -17,6 +17,7 @@
         <div class="navbar-brand">
           <a class="navbar-item" href="index.html">
             <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
+            <img hidden src="./assets/images/imbd-small.png" class="imbd-small" alt="imbd-logo">
           </a>
       
           <a role="button" id="burger" class="navbar-burger">
@@ -51,7 +52,7 @@
 </header>
     
     <div class = "container">
-        <h3 class="title has-text-centered is-family-monospace has-text-white pt-6">
+        <h3 class="page-title has-text-centered is-family-monospace has-text-white pt-6">
            What kind of movie are you in the mood for?🍿
         </h3>
         <br>
@@ -59,7 +60,7 @@
     <div class="dropdown has-text-centered p-1">
         <div class="dropdown-trigger">
           <button class="button drop-down-button" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span class="is-size-3 is-family-monospace"> 🎬 Pick a Genre</span>
+            <span class="pick is-family-monospace"> 🎬 Pick a Genre</span>
             <span class="icon is-small">
               <i class="fas fa-angle-down" aria-hidden="true"></i>
             </span>
@@ -130,7 +131,7 @@
 <!--Movie Genre List-->
 <section class="panel pt-4">
     <div class="columns">
-        <div id="genre-list" class="column movie-info card is-invisible">
+        <div id="genre-list" class="movie-info is-invisible">
         </div>
         
     </div>
