@@ -33,10 +33,22 @@
     min-height: 750px;
 }
 
+#id-movie-information-list {
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-content: center; */
+}
+
+#id-iframe {
+    width: 100%;
+}
 
 /***** MEDIA QUERIES *****/
-
 @media screen {
+    #id-div-search h3 {
+        text-align: center;
+    }
+    
     .movie-card {
         max-height: fit-content;
     }
@@ -60,6 +72,10 @@
 
     .poster {
         width: 100%;
+    }
+
+    #id-iframe {
+        min-height: 270px;
     }
 }
 
@@ -146,18 +162,6 @@
     backdrop-filter: blur(10px);
 }
 
-.border-me-orange {
-    border: solid 2px orange;
-}
-
-.border-me-green {
-    border: solid 2px green;
-}
-
 .border-me-yellow {
     border: solid 2px yellow;
-}
-
-.border-me-pink {
-    border: solid 2px pink;
 }

@@ -5,10 +5,10 @@ var movieFormEl= document.getElementById('id-search-form');
 var divContainer = document.getElementById('id-div-container');
 // div to hold movie poster and details about the movie, cast, runtime, etc
 var divContainerChild = document.createElement('div');
-divContainerChild.className = 'columns border-me-orange';
-// div to hold miscellaneous movie information on right-hand side
+divContainerChild.className = 'columns';
+// div to hold miscellaneous movie information and trailer to the right of the poster
 var divMovieInformationList = document.createElement('div');
-divMovieInformationList.className = 'column';
+divMovieInformationList.className = 'is-flex';
 divMovieInformationList.setAttribute('id', 'id-movie-information-list')
 
 var baseUrl = 'https://api.themoviedb.org/3' // base URL to which we will concatenate
@@ -278,9 +278,15 @@ var displayMovieTrailer = function(vidId){
     // div to hold iframe that shows the movie trailer
     var movieIframe = document.createElement('iframe');
     movieIframe.setAttribute('src', `https://www.youtube.com/embed/` + vidId);
+    movieIframe.setAttribute("id", "id-iframe");
     console.log(movieIframe.getAttribute('src'));
-    movieIframe.setAttribute('width', '560', 'height', '515', 'target', '_parent', 'frameborder', '0', 'allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', 'allowfullscreen');
-    movieIframe.className = 'column border-me-yellow';
+    movieIframe.setAttribute('width', '560');
+    movieIframe.setAttribute('height', '315');
+    movieFormEl.setAttribute('target', '_parent');
+    movieIframe.setAttribute('frameborder', '0');
+    movieIframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    movieIframe.setAttribute('allowfullscreen', "");
+    movieIframe.className = 'column';
     // append iframe to divMovieInformationList
     divMovieInformationList.append(movieIframe);
 };
@@ -298,9 +304,10 @@ var getWatchProviders = function (movieId, movieObjectIndex, castString){
                 response.json()
         .then(data => {
             watchLink = data.results['US'].link;
-            // // div to hold movie poster and details about the movie, cast, runtime, etc
-            // var divContainerChild = document.createElement('div');
-            // divContainerChild.className = 'columns';
+            
+            // clear out divContainer and divMovieInformationList
+            divContainerChild.replaceChildren();
+            divMovieInformationList.replaceChildren();
             
             // div to hold large movie poster image
             var divMoviePosterImage = document.createElement('div');
@@ -308,11 +315,8 @@ var getWatchProviders = function (movieId, movieObjectIndex, castString){
             divMoviePosterImage.innerHTML = `<figure class='image is-2by3'>                            
                                                 <img src='` + getMoviePosterImage(movieId) + `' alt='Movie poster null'>
                                             </figure>`;
-            // // div to hold miscellaneous movie information on right-hand side
-            // var divMovieInformationList = document.createElement('div');
-            // divMovieInformationList.className = 'column';
             
-            // divs that are classes as Bulma block and that hold the miscellaneous movie info
+            // divs that are classed as Bulma block and that hold the miscellaneous movie info
             // i.e. title, synopsis, release date, cast, and link to where the movie can be watched
             var blockMovieTitle = document.createElement('div');
             blockMovieTitle.className = 'block text-color';
