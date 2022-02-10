@@ -1,5 +1,5 @@
 :root {
-    --text-color: blanchedalmond;
+    --text-color: white;
 }
 
 /* ZERO OUT ANY USER-AGENT-ASSIGNED MARGINS, PADDINGS, ETC. */ 
@@ -9,15 +9,6 @@
     box-sizing: border-box;
 }
 
-/* #movie-image {
-    min-width: 200px;
-} */
-
-/* #related-movie-img {
-    max-width: 175px;
-} */
-
-
 html {
     background-image: url(../images/hero-img.jpg);
     background-size: cover;
@@ -26,10 +17,13 @@ html {
     height: 100vh;
 }
 
-
 #id-div-search {
     height: auto;
     padding: 10px;
+}
+
+#id-div-search h3 {
+    text-align: center;
 }
 
 #id-search-form {
@@ -42,18 +36,17 @@ html {
     min-height: 750px;
 }
 
-#id-movie-information-list {
+#id-div-movie-poster {
+    width: 100%;
+}
+
+#id-div-movie-information-list {
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-content: center; */
 }
 
 #id-iframe {
     width: 100%;
-}
-
-#id-div-search h3 {
-    text-align: center;
+    min-height: 330px;
 }
 
 .movie-card {
@@ -81,12 +74,12 @@ html {
     width: 100%;
 }
 
-#id-iframe {
-    min-height: 270px;
+.block {
+    font-size: 1.0em;
 }
 
-/***** MEDIA QUERIES *****/
 
+/***** MEDIA QUERIES *****/
 @media screen and (max-width:1023px) {
     .imbd-logo{
         display: none;
@@ -102,6 +95,7 @@ html {
         z-index: 9999;
     }
 }
+
 /* from tablet onwards */
 @media screen and (min-width: 769px){
     #id-div-search {
@@ -112,12 +106,47 @@ html {
     .icon-text {
         font-size: 1.2em;
     }
+
+    .block {
+        font-size: 1.2em;
+        padding: 0.75rem;
+    }
+
+    #id-div-container-child {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #id-div-movie-poster {
+        width: 90%;
+    }
+
+    #id-iframe {
+        min-height: 500px;
+    }
 }
 
 /* from desktop onwards */
 @media screen and (min-width: 1024px){
     #id-div-search {
         min-width: 60%;
+    }
+
+    #id-div-container-child {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #id-div-movie-poster {
+        max-width: 33%;
+    }
+
+    .block {
+        padding-top: 0;
+    }
+
+    #id-iframe {
+        min-height: 600px;
     }
 }
 
@@ -183,8 +212,4 @@ html {
 .card-background-transparent-blur {
     background: none;
     backdrop-filter: blur(10px);
-}
-
-.border-me-yellow {
-    border: solid 2px yellow;
 }
