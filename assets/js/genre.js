@@ -5,6 +5,13 @@ dropdown.addEventListener('click', function(event) {
   dropdown.classList.toggle('is-active');
 });
 
+const myNav = document.querySelector("#navbar-menu")
+const burger = document.querySelector("#burger")
+burger.addEventListener('click', ()=> {
+    myNav.classList.toggle("is-active")
+    burger.classList.toggle("is-active")
+})
+
 var genreListContainer = document.querySelector("#genre-list");
 var genreEl = document.querySelector("#genre");
 
@@ -70,20 +77,36 @@ var displayGenreTitles = function(results) {
         a.setAttribute('href', "https://www.themoviedb.org/movie/" + element.id + "-" + element.title + "?language=en-US");
         a.target = '_blank';
         a.innerText = 'More Info';
-        a.classList.add("button", "mr-3");
+        a.classList.add("button", "mr-3", "is-info");
         movieDiv.appendChild(a);
 
         favoriteListEl = document.createElement("button");
-        favoriteListEl.classList.add("button");
-        favoriteListEl.textContent = "Add to List";
+        favoriteListEl.classList.add("button", "fav-button", "is-danger");
+        
+        favoriteListEl.textContent = "Add to Favorites";
+        favoriteListEl.addEventListener('click', () => {
+            saveFavorite(element)
+        });
       
         movieDiv.appendChild(favoriteListEl);
         genreListContainer.appendChild(movieDiv)
-    
-    });
 
+    });  
 }
 
+var saveFavorite = function(movie) {
+    let currentFavorites = localStorage.getItem('favorites')
+    currentFavorites = currentFavorites ? JSON.parse(currentFavorites) : []
+
+    let currentFavoriteIds = currentFavorites.map(function (m) {
+        return m.id
+      });
+
+    if (currentFavoriteIds.includes(movie.id)) return false;
+
+    let newFavorites = JSON.stringify(currentFavorites.concat(movie))
+    localStorage.setItem('favorites', newFavorites);
+}
 
 
 

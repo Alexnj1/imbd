@@ -4,6 +4,13 @@ var mainBody = document.querySelector("main");
 var queryString = document.location.search;
 movieId = queryString.split("=")[2];
 
+const myNav = document.querySelector("#navbar-menu")
+const burger = document.querySelector("#burger")
+burger.addEventListener('click', ()=> {
+    myNav.classList.toggle("is-active")
+    burger.classList.toggle("is-active")
+})
+
 // Accessing all needed data
 
 function getLocation() {
@@ -140,11 +147,12 @@ function displayMovieInfo(data) {
 }
 
 function displayTheaters(data) {
+    var theaters = document.querySelector('.theaters-container')
+    theaters.textContent = ''
   for (i = 0; i < data.results.length; i++) {
-    if (data.results[i].poi.url) {
+    
+    if (data.results[i].poi.url) {console.log(data.results[i].poi.url)
       var main = document.querySelector(".interactions");
-
-      var theaters = document.querySelector('.theaters-container')
 
       var theaterContainer = document.createElement("div");
 
@@ -161,6 +169,7 @@ function displayTheaters(data) {
 
       var locationIcon = document.createElement("i");
       locationIcon.className = "fas fa-map-marked-alt fa-2x";
+      locationIcon.setAttribute('title', 'See Directions')
 
       iconLink.append(locationIcon);
 
@@ -174,11 +183,12 @@ function displayTheaters(data) {
       info.innerHTML =
         data.results[i].poi.name +
         "<br>" +
-        data.results[i].address.freeformAddress +
-        "<br>" +
-        "<a target=_blank href=" +
-        data.results[i].poi.url +
-        ">Visit Website";
+        data.results[i].address.freeformAddress
+        //  +
+        // "<br>" +
+        // "<a target=_blank href=https://" +
+        // data.results[i].poi.url +
+        // ">Visit Website";
 
       theaterInfo.append(iconSpan, info);
       theaterContainer.append(theaterInfo);

@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/styles/going-out.css">
     <link rel="stylesheet" href="assets/styles/sitewide.css">
-    <title>Going Out - IMBD</title>
+    <link rel="stylesheet" href="assets/styles/favorites.css">
+    <script src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 </head>
 <body>
-     <!--Nav Bar with movie list, home page, and going out link-->
-     <header>
+    <header>
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
               <a class="navbar-item" href="index.html">
                 <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
-                <img hidden src="./assets/images/imbd-small.png" class="imbd-small" alt="imbd-logo">
               </a>
           
-              <a role="button" id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <a role="button" id="burger" class="navbar-burger">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
-              </a>
+            </a>
             </div>
           
             <div id="navbar-menu" class="navbar-menu">
@@ -47,33 +46,15 @@
                 </a>
               </div>
             </div>
-
-            
           </nav>
     </header>
+    <div class="container">
+        <h1 class="title is-1 has-text-centered pt-4 has-text-white">Favorites</h1>
+    </div>
+    <div class="container" id="favorites-list">
 
-    <main>
-      <div class="button-container is-flex is-justify-content-space-around">
-        <button class="now-playing button is-info is-rounded is-medium">See all movies now playing 🍿</button>
-        <!-- <button class="reset button is-ghost is-rounded"></button> -->
-        <button class="upcoming button is-info is-rounded is-medium">See all upcoming movies ⌚</button>
-      </div>
-
-      <div class="error-message"></div>
-
-      <h2 hidden class="sort-info">Results Sorted By Popularity</h2>
-
-      <div class="movie-result-container">
-
-      </div>
-
-      <div class="load">
-        <button class="load-more button is-ghost is-rounded"></button>
-      </div>
-      
-    </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="./assets/js/going-out.js"></script>
-  </body>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/js/favorites.js"></script>
+</body>
 </html>
