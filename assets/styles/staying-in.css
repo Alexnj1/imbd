@@ -98,18 +98,8 @@ html {
 }
 }
 
-/* from desktop onwards */
-@media screen and (min-width: 1024px){
-    #id-div-search {
-        min-width: 80%;
-    }
-}
-
 /* from widescreen onwards */
 @media screen and (min-width: 1216px){
-    #id-div-search {
-        min-width: 80%;
-    }
     
     .card-header {
         flex-direction: row;
