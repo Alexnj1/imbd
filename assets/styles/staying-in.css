@@ -43,8 +43,7 @@
     width: 100%;
 }
 
-/***** MEDIA QUERIES *****/
-/* @media screen { */
+
     #id-div-search h3 {
         text-align: center;
     }
@@ -77,8 +76,8 @@
     #id-iframe {
         min-height: 270px;
     }
-/* } */
 
+/***** MEDIA QUERIES *****/
 /* from tablet onwards */
 @media screen and (min-width: 769px){
     #id-div-search {
