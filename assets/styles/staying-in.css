@@ -19,9 +19,6 @@
     max-width: 175px;
 } */
 
-.imbd-logo {
-    min-height: 100px;
-}
 
 html {
     background-image: url(../images/hero-img.jpg);
@@ -51,12 +48,87 @@ html {
     min-height: 750px;
 }
 
-.card {
+.movie-card {
     background: none;
     backdrop-filter: blur(10px);
     border: solid 3px black;
     border-radius: 15px;
     color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    min-height: 230px;
+    height:auto;
+    display: flex;
+}
+
+.card-header {
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-header-title {
+    font-size: 50px;
+    color: white;
+}
+
+/* .poster-plot {
+    display: flex;
+    justify-content: space-around;
+} */
+
+.movie-poster {
+    display: inline;
+    max-width: 200px;
+    max-height: 300px;
+    height: auto;
+    width: auto;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.movie-plot {
+    display: inline;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.single-movie-container {
+    display: flex;
+    background: none;
+    backdrop-filter: blur(10px);
+    border: solid 3px black;
+    border-radius: 15px;
+    color: white;
+    margin: 20px;
+    width: auto;
+}
+
+.single-poster {
+    max-width: 400px;
+    max-height: 600px;
+    height: 100vw;
+    width: 80vw;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.single-info-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.single-title {
+    font-size: 55px;
+}
+
+.single-plot, .single-release, .single-cast, .single-providers {
+    font-size: 25px;
 }
 
 /***** UTILITIES *****/
@@ -65,8 +137,9 @@ html {
 }
 
 .poster-size {
-    height: 17vw;
-    width: 12vw;
+    height: 100px;
+    width: 100px;
+    position: static;
 }
 
 .display-it-flex {
@@ -125,12 +198,64 @@ html {
         top: 0px;
         z-index: 9999;
     }
+
+    .single-plot, .single-release, .single-cast, .single-providers {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .movie-card {
+        flex-direction: column;
+        text-align: center;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        margin-bottom: 20px;
+    }
+
+    .card-header-title {
+        font-size: 40px;
+        margin: auto;
+    }
+
+    .movie-poster {
+        margin: auto;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .single-movie-container {
+        flex-direction: column;
+        text-align: center;
+        margin: auto;
+    }
+
+    .single-poster {
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .single-title, .single-plot, .single-release, .single-cast, .single-providers {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 @media screen and (max-width:550px) {
     #id-search-form {
         margin-left: 10vw;
         margin-right: 10vw;
+    }
+
+    .card-header-title {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width:475px) {
+    .single-title {
+        font-size: 40px;
     }
 }
 

@@ -75,7 +75,7 @@ var displaySearchResults = function(){
             for(var i = 0; i < searchResults.length; i++){
                 // create card container which will hold movie title, poster, and movie plot text
                 var movieCard = document.createElement("div");
-                movieCard.className = "card column ";
+                movieCard.className = "movie-card";
                 // movie header holds movie title and favorites button
                 var movieHeader = document.createElement("div");
                 movieHeader.className = "card-header is-shadowless";
@@ -98,27 +98,26 @@ var displaySearchResults = function(){
                 });
                 
                 // div to hold poster and plot text
-                var divPosterAndPlot = document.createElement("div");
-                divPosterAndPlot.className = "display-it-flex max-height-div-container";
+                var plot = document.createElement("div");
+                plot.className = "plot";
                 
-                var moviePoster = document.createElement("div");
-                moviePoster.innerHTML = `<figure class="image is-2by3">                            
-                                            <img src="` + getMoviePosterImage(searchResults[i].id) + `" alt="Movie poster null">
-                                        </figure>`;
-                moviePoster.className = "card-image poster-size hand-pointer";
+                var moviePoster = document.createElement("img");
+                moviePoster.setAttribute('src', getMoviePosterImage(searchResults[i].id) )
+                moviePoster.className = "movie-poster";
                 moviePoster.setAttribute("data-movie-id", searchResults[i].id);
                 // add event listener to movie poster such that when the poster is clicked, run displayMovieInformation
                 moviePoster.addEventListener('click', displayMovieInformation);
 
                 var moviePlot = document.createElement("p");
+                moviePlot.classList = 'movie-plot'
                 moviePlot.innerText = searchResults[i].overview;
-                moviePlot.className = `card-content
-                max-width-fifty-percent hide-overflow show-overflow-on-hover`;
+                // moviePlot.className = `card-content`;
     
                 // append elements to their respective containers
-                movieHeader.append(movieTitle, addToFavBtn);
-                divPosterAndPlot.append(moviePoster, moviePlot);
-                movieCard.append(movieHeader, divPosterAndPlot);
+                
+                plot.append(moviePlot);
+                movieHeader.append(movieTitle, moviePlot, addToFavBtn);
+                movieCard.append(moviePoster, movieHeader);
                 divContainer.append(movieCard);
             }
         }, 500);
@@ -281,49 +280,47 @@ var getWatchProviders = function (movieId, movieObjectIndex, castString, vidId){
             watchLink = data.results["US"].link;
             // div to hold movie poster and details about the movie, cast, runtime, etc
             var divContainerChild1 = document.createElement('div');
-            divContainerChild1.className = "columns";
+            divContainerChild1.className = "single-movie-container";
             // div to hold iframe that shows the movie trailer
             var divContainerChild2 = document.createElement('div');
             divContainerChild2.className = "columns div-container-child-2-min-height";
             // div to hold large movie poster image
-            var divMoviePosterImage = document.createElement('div');
-            divMoviePosterImage.className = "column is-one-third";
-            divMoviePosterImage.innerHTML = `<figure class="image is-2by3">                            
-                                                <img src="` + getMoviePosterImage(movieId) + `" alt="Movie poster null">
-                                            </figure>`;
+            var divMoviePosterImage = document.createElement('img');
+            divMoviePosterImage.className = "single-poster";
+            divMoviePosterImage.setAttribute('src', getMoviePosterImage(movieId))
             // div to hold miscellaneous movie information on right-hand side
             var divMovieInformationList = document.createElement('div');
-            divMovieInformationList.className = "column";
+            divMovieInformationList.className = "single-info-list";
             
             // divs that are classes as Bulma block and that hold the miscellaneous movie info
             // i.e. title, synopsis, release date, cast, and link to where the movie can be watched
             var blockMovieTitle = document.createElement('div');
-            blockMovieTitle.className = 'block text-color';
-            blockMovieTitle.innerText = `Title: ${searchResults[movieObjectIndex].title}`
+            blockMovieTitle.className = 'single-title';
+            blockMovieTitle.innerText = `${searchResults[movieObjectIndex].title}`
             var blockMoviePlot = document.createElement('div');
-            blockMoviePlot.className = 'block text-color';
+            blockMoviePlot.className = 'single-plot';
             blockMoviePlot.innerText = `Synopsis: ${searchResults[movieObjectIndex].overview}`;
             var blockReleaseDate = document.createElement('div');
-            blockReleaseDate.className = 'block text-color';
+            blockReleaseDate.className = 'single-release';
             blockReleaseDate.innerText = `Release Date: ${searchResults[movieObjectIndex].release_date}`;
             var blockMovieCast = document.createElement('div');
-            blockMovieCast.className = 'block text-color';
+            blockMovieCast.className = 'single-cast';
             blockMovieCast.innerText = 'Cast Includes: ' + castString;
             var blockWatchProviders = document.createElement('div');
-            blockWatchProviders.className = 'block text-color';
+            blockWatchProviders.className = 'single-providers';
             blockWatchProviders.innerHTML = `For a link to watch providers for this film, click <a href="` + watchLink + `">here</a>.`;
 
             // this iframe part is a bit wonky; needs improvement.
-            setTimeout(() => {
-                var movieIframe = document.createElement('iframe');
-                movieIframe.setAttribute("src", `https://www.youtube.com/embed/` + vidId);
-                console.log(movieIframe.getAttribute("src"));
-                movieIframe.setAttribute("width", "1120", "height", "630", "target", "_parent", "frameborder", "0", "allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", "allowfullscreen");
-                movieIframe.className = "column";
-                // append iframe to divContainerChild2
-                divContainerChild2.append(movieIframe);
-                divContainer.append(divContainerChild2);
-            }, 2500);
+            // setTimeout(() => {
+            //     var movieIframe = document.createElement('iframe');
+            //     movieIframe.setAttribute("src", `https://www.youtube.com/embed/` + vidId);
+            //     console.log(movieIframe.getAttribute("src"));
+            //     movieIframe.setAttribute("width", "auto", "height", "auto", "target", "_parent", "frameborder", "0", "allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", "allowfullscreen");
+            //     movieIframe.className = "column";
+            //     // append iframe to divContainerChild2
+            //     divContainerChild2.append(movieIframe);
+            //     divContainer.append(divContainerChild2);
+            // }, 2500);
 
             // do the necessary appends, and finally append everything to divContainer
             divMovieInformationList.append(blockMovieTitle, blockMoviePlot, blockReleaseDate, blockMovieCast, blockWatchProviders);

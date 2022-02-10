@@ -80,6 +80,12 @@ a {
     .imbd-small {
         display: inline;
     }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
 }
 
 @media screen and (max-width:980px) {
