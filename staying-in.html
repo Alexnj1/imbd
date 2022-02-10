@@ -8,102 +8,48 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="assets/styles/staying-in.css">
     <link rel="stylesheet" href="assets/styles/sitewide.css">
+    <script src="https://kit.fontawesome.com/331def02d9.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!--Nav Bar with movie list, home page, and going out link-->
     <header>
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-              <a class="navbar-item" href="index.html">
-                <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
-              </a>
-          
+              <a class="navbar-item" href="index.html"><img src="assets/images/imbd-logos_transparent.png" class="imbd-logo"></a>
               <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
               </a>
             </div>
-          
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
-                <a href="index.html" class="navbar-item">
-                  Home
-                </a>
-          
-                <a href="staying-in.html" class="navbar-item">
-                  Staying In
-                </a>
-          
-                <a href="going-out.html" class="navbar-item">
-                    Going Out
-                  </a>
-                  <a href="genre.html" class="navbar-item">
-                    Genres
-                </a>
+                <a href="index.html" class="navbar-item">Home</a>
+                <a href="staying-in.html" class="navbar-item">Staying In</a>
+                <a href="going-out.html" class="navbar-item">Going Out</a>
+                <a href="genre.html" class="navbar-item">Genres</a>
+                <a href="favorites.html" class="navbar-item">Favorites</a>
               </div>
             </div>
           </nav>
     </header>
-   <!--Movie Search-->
-    <div class="columns is-centered mb-3 mt-6" id="movie-search">
-        <div class="column is-one-third">
-            <h3 class="title is-3">What would you like to watch?</h3>
-        </div>
-    </div>
-    <div class="columns is-centered">
-        <div class="column is-half"> 
-            <form class="is-flex" id = "movie-search-form">
-                <input type="text" class="input is-info mr-2" placeholder="Search.." id="movie-input">
-                <button class="button is-outlined is-info" type="submit" id="searchBtn">Search</button>
+
+   <!-- div container which holds search container and content display container -->
+   <div class="columns is-multiline mt-0" id="id-main">
+        <!-- div container where search takes place -->
+        <div class="column mx-auto" id="id-div-search"> <!--is-two-fifths mt-6-->
+            <h3 class="title is-2 text-color">What would you like to watch?</h3>
+            <form class="is-flex" id="id-search-form">
+                <input type="text" class="input is-info mr-2" placeholder="Enter your search here" id="id-search-input">
+                <button class="button is-outlined is-info" type="submit" id="id-search-btn">Search</button>
             </form>
         </div>
-    </div>
-<!--Movie info div spoof content to get idea of layout-->
-    <div class="columns is-centered">
-        <div class="column is-two-thirds is-flex">
-            <figure class="image">
-                <img id="movie-image" src="assets/images/shrek.jpg" class="is-centered" alt="">
-            </figure>
-            <div class="column is-centered">
-                <h2 class="title is-2 has-text-centered">Shrek</h2>
-                <p id="movie-description" class="pl-4 has-text-centered">
-                It ain't easy bein' green -- especially if you're a likable (albeit smelly) ogre named Shrek. On a
-                mission to retrieve a gorgeous princess from the clutches of a fire-breathing dragon, Shrek teams up
-                with an unlikely compatriot -- a wisecracking donkey.
-                </p> 
-                <h4 class="subtitle is-4">Where To Watch:</h4>
-                <ul>
-                    <li><a href="http://netflix.com" target="blank">Netflix </a></li>
-                    <li><a href="https://hulu.com" target="blank">Hulu </a></li>
-                    <li><a href="https://www.disneyplus.com/" target="blank">Disney Plus </a></li>
-                </ul>
-            </div>
+        <!-- div container where dynamic HTML creation takes place -->
+        <div class="column is-full is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly py-4 px-6" id="id-div-container">
+        
         </div>
-    </div>
-    <!--Related Movies-->
-    <h2 class="title is-2 has-text-centered">Related Movies</h2>
-    <div class="columns is-centered">
-        <div class="column is-one-quarter">
-            <img id="related-movie-img" src="assets/images/Shrek-2.jpg" alt="">
-            <h4 id="related-movie-title" class="subtitle is-4">Shrek 2</h4>
-            <p id="related-movie-info">After returning from their honeymoon and showing home movies to their friends, Shrek and Fiona learn that her parents have heard that she has married her true love and wish to invite him to their kingdom, called Far Far Away. The catch is: Fiona's parents are unaware of the curse that struck their daughter and have assumed she married Prince Charming, not a 700-pound ogre with horrible hygiene and a talking donkey pal.</p>
-            <button class="button">Add To List</button>
-        </div>
-        <div class="column is-one-quarter">
-            <img id="related-movie-img" src="assets/images/puss-in-boots.jpg" alt="">
-            <h4 id="related-movie-title" class="subtitle is-4">Puss In Boots</h4>
-            <p id="related-movie-info">Long before meeting Shrek, Puss in Boots (Antonio Banderas) -- just named a hero for saving a woman from a charging bull -- is run out of town on suspicion of bank robbery, even though the real villain is Puss' friend, Humpty Dumpty (Zach Galifianakis). Though there is still animosity between them, Puss and Humpty reunite to steal a goose that lays golden eggs. Joining them for the adventure of nine lifetimes is notorious cat burglar, Kitty Softpaws (Salma Hayek).
-            </p>
-            <button class="button">Add To List</button>
-        </div>
-        <div class="column is-one-quarter">
-            <img id="related-movie-img" src="assets/images/el-dorado.jpg" alt="">
-            <h4 id="related-movie-title" class="subtitle is-4">El Dorado</h4>
-            <p id="related-movie-info">Two con-men (Kevin Kline, Kenneth Branagh) get hold of a map to the lost City of Gold, El Dorado. After stowing away onto one of the ships of the Spanish explorer Cortez, the pair escapes and eventually do find the city. There, a priest (Armand Assante) proclaims them to be gods in a scheme to win control of the city for himself. Meanwhile, they meet a beautiful girl (Rosie Perez) who helps them in their ruse.</p>
-            <button class="button">Add To List</button>
-        </div>
-    </div>
+    </div> 
+
     <script src="assets/js/staying-in.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>

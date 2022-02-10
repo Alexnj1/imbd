@@ -1,11 +1,167 @@
-#movie-image {
-    min-width: 200px;
+:root {
+    --text-color: blanchedalmond;
 }
 
-#related-movie-img {
-    max-width: 175px;
+/* ZERO OUT ANY USER-AGENT-ASSIGNED MARGINS, PADDINGS, ETC. */ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .imbd-logo {
     min-height: 100px;
+}
+
+#id-main {
+    padding: 2vh;
+    background-image: url("/assets/images/hero-img.jpg");
+    background-attachment: fixed;
+    background-size: contain;
+}
+
+#id-div-search {
+    height: auto;
+    padding: 5vh;
+}
+
+#id-search-form {
+    padding: 2vh;
+}
+
+#id-div-container {
+    min-height: 750px;
+}
+
+#id-movie-information-list {
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-content: center; */
+}
+
+#id-iframe {
+    width: 100%;
+}
+
+/***** MEDIA QUERIES *****/
+/* @media screen { */
+    #id-div-search h3 {
+        text-align: center;
+    }
+    
+    .movie-card {
+        max-height: fit-content;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+    }
+
+    .icon-text {
+        font-size: 1.0em;
+        justify-content: center;
+    }
+  
+    .poster-and-plot {
+        max-height: fit-content;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .poster {
+        width: 100%;
+    }
+
+    #id-iframe {
+        min-height: 270px;
+    }
+/* } */
+
+/* from tablet onwards */
+@media screen and (min-width: 769px){
+    #id-div-search {
+       max-width: 80%;
+       margin-top: 1em;
+    }
+
+    .icon-text {
+        font-size: 1.2em;
+    }
+}
+
+/* from desktop onwards */
+@media screen and (min-width: 1024px){
+    #id-div-search {
+        max-width: 60%;
+    }
+}
+
+/* from widescreen onwards */
+@media screen and (min-width: 1216px){
+    #id-div-search {
+        max-width: 50%;
+    }
+    
+    .card-header {
+        flex-direction: row;
+    }
+
+    .title-text {
+        font-size: 0.7em;
+        padding: 0;
+        margin: 0;
+    }
+
+    .icon-text {
+        font-size: 0.7em;
+        justify-content: center;
+    }
+
+    .movie-card {
+        max-height: 45vh;
+    }
+
+    .poster-and-plot {
+        flex-direction: row;
+        align-items: flex-start;
+        height: 28vh;
+    }
+
+    .poster {
+        min-width: 50%;
+        max-height: 28vh;
+    }
+
+    .plot {
+        height: 27vh;
+        padding: 1em;
+        padding-top: 0;
+        font-size: 0.9em;
+        text-align: justify;
+        overflow: hidden;
+    }
+}
+
+/***** UTILITIES *****/
+.handle-overflow:hover {
+    overflow-y: scroll;
+}
+
+.hand-pointer:hover {
+    cursor: pointer;
+}
+
+.text-color {
+    color: var(--text-color);
+}
+
+.card-background-transparent-blur {
+    background: none;
+    backdrop-filter: blur(10px);
+}
+
+.border-me-yellow {
+    border: solid 2px yellow;
 }
