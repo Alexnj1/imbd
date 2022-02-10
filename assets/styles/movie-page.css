@@ -111,6 +111,9 @@ a {
     top: 80px;
 }
 
+.navbar-burger span {
+    width: 40px;
+    height: 1px;
 
 @media screen and (max-width:1400px) {
     .movie-container {

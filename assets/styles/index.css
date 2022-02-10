@@ -19,6 +19,11 @@ html {
     margin: 20px;
 }
 
+.navbar-burger span {
+    width: 40px;
+    height: 1px;
+}
+
 .column {
     padding: 0;
 }
@@ -48,4 +53,3 @@ html {
         margin: 10px;
     }
 }
-
