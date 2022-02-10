@@ -250,8 +250,9 @@ var getYoutubeVideoId = function(movieObjectIndex){
     console.log('inside getYoutubeVideo()');
 
     var movieTitle = searchResults[movieObjectIndex].original_title + ' trailer';
-    
-    var endpointForFetch = 'https://v1.nocodeapi.com/jcomp03/yt/gSOrjpYYbSvEexRB/search?q=' + movieTitle +
+    var releaseDate = searchResults[movieObjectIndex].release_date.substring(0,4);
+    console.log(movieTitle);
+    var endpointForFetch = 'https://v1.nocodeapi.com/jcomp03/yt/gSOrjpYYbSvEexRB/search?q=' + movieTitle + releaseDate +
     '&type=video&maxResults=3&api_key=AIzaSyBoJlu4TN-eQm2gK0ce2uDgbO3RitGY-fQ';
 
     var myHeaders = new Headers();
