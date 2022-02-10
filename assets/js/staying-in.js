@@ -248,7 +248,6 @@ var displayCastInformation = function(castInformationResults){
 // when the movie poster images are initially displayed. 
 var getYoutubeVideoId = function(movieObjectIndex){
     console.log('inside getYoutubeVideo()');
-    movieObjectIndex = 0;
 
     var movieTitle = searchResults[movieObjectIndex].original_title + ' trailer';
     
