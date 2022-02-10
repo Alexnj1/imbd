@@ -8,7 +8,7 @@
 
 ### The Going Out option allows the user to view movies that are either in theaters currently or movies that are upcoming. Includes the description of the movie and places to go watch the movie based on the user's location.
 
-### Link to deployed application:
+### Link to deployed application: https://alexnj1.github.io/bootcamp-group-project/
 
 ## Screenshots
 
