@@ -91,7 +91,7 @@ var displaySearchResults = function(){
                 var movieCard = document.createElement('div');
                 movieCard.className = `card column is-full-mobile is-half-tablet
                  is-one-third-desktop is-one-fifth-widescreen movie-card mx-1 my-5 px-1 py-2 is-shadowless 
-                 card-background-transparent-blur`;
+                 card-background-transparent-blur outline-black`;
                 
                 // movie header holds movie title and favorites button
                 var movieHeader = document.createElement('div');

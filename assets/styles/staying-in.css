@@ -214,3 +214,7 @@ html {
     backdrop-filter: blur(10px);
 }
 
+.outline-black {
+    border: solid 3px black;
+}
+
