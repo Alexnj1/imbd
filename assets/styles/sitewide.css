@@ -7,3 +7,7 @@
     font-size: 20px;
 }
 
+.navbar-burger span {
+    width: 40px;
+    height: 1px;
+}
