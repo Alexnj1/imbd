@@ -6,10 +6,11 @@ var divContainer = document.getElementById('id-div-container');
 // div to hold movie poster and details about the movie, cast, runtime, etc
 var divContainerChild = document.createElement('div');
 divContainerChild.className = 'columns';
+divContainerChild.setAttribute('id', 'id-div-container-child');
 // div to hold miscellaneous movie information and trailer to the right of the poster
 var divMovieInformationList = document.createElement('div');
-divMovieInformationList.className = 'is-flex';
-divMovieInformationList.setAttribute('id', 'id-movie-information-list')
+divMovieInformationList.className = 'column is-flex';
+divMovieInformationList.setAttribute('id', 'id-div-movie-information-list');
 
 var baseUrl = 'https://api.themoviedb.org/3' // base URL to which we will concatenate
 var imageBaseUrl = 'https://image.tmdb.org/t/p/original' // for pulling movie posters
@@ -319,30 +320,31 @@ var getWatchProviders = function (movieId, movieObjectIndex, castString){
             
             // div to hold large movie poster image
             var divMoviePosterImage = document.createElement('div');
-            divMoviePosterImage.className = 'column is-one-third';
+            divMoviePosterImage.setAttribute('id', 'id-div-movie-poster');
+            divMoviePosterImage.className = 'column'; //is-one-third';
             divMoviePosterImage.innerHTML = `<figure class='image is-2by3'>                            
                                                 <img src='` + getMoviePosterImage(movieId) + `' alt='Movie poster null'>
                                             </figure>`;
             
             // divs that are classed as Bulma block and that hold the miscellaneous movie info
             // i.e. title, synopsis, release date, cast, and link to where the movie can be watched
-            var blockMovieTitle = document.createElement('div');
-            blockMovieTitle.className = 'single-title';
-            blockMovieTitle.innerText = `${searchResults[movieObjectIndex].title}`
+/*             var blockMovieTitle = document.createElement('div');
+            blockMovieTitle.className = 'block text-color';
+            blockMovieTitle.innerText = `${searchResults[movieObjectIndex].title}` */
             var blockMoviePlot = document.createElement('div');
-            blockMoviePlot.className = 'single-plot';
+            blockMoviePlot.className = 'block text-color';
             blockMoviePlot.innerText = `Synopsis: ${searchResults[movieObjectIndex].overview}`;
             var blockReleaseDate = document.createElement('div');
-            blockReleaseDate.className = 'single-release';
+            blockReleaseDate.className = 'block text-color';
             blockReleaseDate.innerText = `Release Date: ${searchResults[movieObjectIndex].release_date}`;
             var blockMovieCast = document.createElement('div');
-            blockMovieCast.className = 'single-cast';
+            blockMovieCast.className = 'block text-color';
             blockMovieCast.innerText = 'Cast Includes: ' + castString;
             var blockWatchProviders = document.createElement('div');
             blockWatchProviders.className = 'block text-color';
             blockWatchProviders.innerHTML = `For a link to watch providers for this film, click <a href='` + watchLink + `'>here</a>.`;
             // do the necessary appends, and finally append everything to divContainer
-            divMovieInformationList.prepend(blockMovieTitle, blockMoviePlot, blockReleaseDate, blockMovieCast, blockWatchProviders);
+            divMovieInformationList.prepend(blockMoviePlot, blockReleaseDate, blockMovieCast, blockWatchProviders);
             divContainerChild.append(divMoviePosterImage, divMovieInformationList);
             divContainer.append(divContainerChild);
         })
