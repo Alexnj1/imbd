@@ -132,9 +132,9 @@ var displaySearchResults = function(){
     
                 // append elements to their respective containers
                 
-                plot.append(moviePlot);
-                movieHeader.append(movieTitle, moviePlot, addToFavBtn);
-                movieCard.append(moviePoster, movieHeader);
+                movieHeader.append(movieTitle, addToFavBtn);
+                divPosterAndPlot.append(moviePoster, moviePlot);
+                movieCard.append(movieHeader, divPosterAndPlot);
                 divContainer.append(movieCard);
             }
         }, 500);

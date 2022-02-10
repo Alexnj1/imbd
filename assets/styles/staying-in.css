@@ -87,10 +87,26 @@ html {
     }
 
 /***** MEDIA QUERIES *****/
+
+@media screen and (max-width:1023px) {
+    .imbd-logo{
+        display: none;
+    }
+
+    .imbd-small {
+        display: inline;
+    }
+
+    header {
+        position: sticky;
+        top: 0px;
+        z-index: 9999;
+    }
+}
 /* from tablet onwards */
 @media screen and (min-width: 769px){
     #id-div-search {
-       max-width: 80%;
+       min-width: 80%;
        margin-top: 1em;
     }
 
@@ -102,14 +118,14 @@ html {
 /* from desktop onwards */
 @media screen and (min-width: 1024px){
     #id-div-search {
-        max-width: 60%;
+        min-width: 60%;
     }
 }
 
 /* from widescreen onwards */
 @media screen and (min-width: 1216px){
     #id-div-search {
-        max-width: 50%;
+        min-width: 50%;
     }
     
     .card-header {
