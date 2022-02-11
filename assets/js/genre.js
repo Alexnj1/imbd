@@ -20,7 +20,7 @@ var apiKey = "c07b2488e7306d0323e72d8fd4992d94";
 
 var getGenreTitles = function(genreId){
  
-    var apiUrl = "https://api.themoviedb.org/3/discover/movie/?api_key=" + apiKey + "&language=en-US&page=1&include_adult=false&sort_by=vote_count.desc&with_genres=" + genreId;
+    var apiUrl = "https://api.themoviedb.org/3/discover/movie/?api_key=" + apiKey + "&language=en-US&page=1&includeadult=false&sortby=votecount.desc&withgenres=" + genreId;
 
      // make a get request to url
     fetch(apiUrl)
