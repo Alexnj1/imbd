@@ -1,139 +1,141 @@
 html {
-    height: 100vh;
-    background-image: url(../images/hero-img.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+  height: 100vh;
+  background-image: url(../images/hero-img.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .page-title {
-    font-size: 35px;
-    margin: 5vw;
+  font-size: 35px;
+  margin: 5vw;
 }
 
 .pick {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .image {
-    max-width: 300px;
-    max-height: 300px;
-    /* margin: auto; */
-    margin: 20px;
+  max-width: 300px;
+  max-height: 300px;
+  /* margin: auto; */
+  margin: 20px;
 }
 
 .movie-title {
-   font-size: 50px;
-   -webkit-line-clamp: 1;
+  font-size: 50px;
+  -webkit-line-clamp: 1;
 }
 
 .movie-info {
-    color: white;
-    font-size: 20px;
+  color: white;
+  font-size: 20px;
 }
 
 .title-description {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .button-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 5vw 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 5vw 10px;
 }
 
 .dropdown {
-    width: 100%;
+  width: 100%;
 }
 
 .dropdown-trigger {
-    width: 100%;
+  width: 100%;
 }
 .drop-down-button {
-    width: 75%;
+  width: 75%;
 }
 
 .dropdown-menu {
-    width: 75%;
-    margin-left: 13%;
+  width: 75%;
+  margin-left: 13%;
 }
 
 .title {
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: white;
 }
 
 .movie-div {
-    box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
-    -moz-box-shadow: 7px 10px 29px -16px rgba(0,0,0,0.75);
-    margin: 20px 100px;
-    padding: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    background: none;
-    border: solid 3px black;
-
+  box-shadow: 7px 10px 29px -16px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 10px 29px -16px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 10px 29px -16px rgba(0, 0, 0, 0.75);
+  margin: 20px 100px;
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  background: none;
+  border: solid 3px black;
 }
 
 .fav-button {
-    transition: all 0.5s;
-    cursor: pointer;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
-@media screen and (max-width:1023px) {
-    .imbd-logo{
-        display: none;
-    }
+@media screen and (max-width: 1023px) {
+  .imbd-logo {
+    display: none;
+  }
 
-    .imbd-small {
-        display: inline;
-    }
+  .imbd-small {
+    display: inline;
+  }
 
-    header {
-        position: sticky;
-        top: 0px;
-        z-index: 9999;
-    }
+  header {
+    position: sticky;
+    top: 0px;
+    z-index: 9999;
+  }
 
-    .single-plot, .single-release, .single-cast, .single-providers {
-        font-size: 20px;
-    }
+  .single-plot,
+  .single-release,
+  .single-cast,
+  .single-providers {
+    font-size: 20px;
+  }
 }
 
-@media screen and (max-width:900px) {
-    .movie-div {
-        flex-direction: column;
-    }
+@media screen and (max-width: 900px) {
+  .movie-div {
+    flex-direction: column;
+  }
 
-    .image {
-        margin: auto;
-        height: 600px;
-    }
+  .image {
+    margin: auto;
+    height: 600px;
+  }
 
-    .button-container {
-        margin: auto;
-        align-items: center;    
-    }
+  .button-container {
+    margin: auto;
+    align-items: center;
+  }
 
-    .button {
-        margin: 20px 0 10px !important;
-    }
+  .button {
+    margin: 20px 0 10px !important;
+  }
 }
 
-@media screen and (max-width:768px) {
-    .movie-div {
-        margin: 20px 10vw;
-    }
+@media screen and (max-width: 768px) {
+  .movie-div {
+    margin: 20px 10vw;
+  }
 }
 
-@media screen and (max-width:425px) {
-    .movie-div {
-        margin: 20px 5vw;
-    }
+@media screen and (max-width: 425px) {
+  .movie-div {
+    margin: 20px 5vw;
+  }
 
-    .pick {
-        font-size: 20px;
-    }
+  .pick {
+    font-size: 20px;
+  }
 }

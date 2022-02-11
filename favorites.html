@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/styles/sitewide.css">
-    <link rel="stylesheet" href="assets/styles/favorites.css">
-    <script src = "https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="assets/styles/sitewide.css" />
+    <link rel="stylesheet" href="assets/styles/favorites.css" />
+    <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  </head>
+  <body>
     <header>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-              <a class="navbar-item" href="index.html">
-                <img src="assets/images/imbd-logos_transparent.png" class="imbd-logo">
-                <img hidden src="./assets/images/imbd-small.png" class="imbd-small" alt="imbd-logo">
-              </a>
-          
-              <a role="button" id="burger" class="navbar-burger">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-            </div>
-          
-            <div id="navbar-menu" class="navbar-menu">
-              <div class="navbar-start has-text-right">
-                <a href="index.html" class="navbar-item">
-                  Home
-                </a>
-          
-                <a href="staying-in.html" class="navbar-item">
-                  Staying In
-                </a>
-          
-                <a href="going-out.html" class="navbar-item">
-                    Going Out
-                  </a>
-                <a href="genre.html" class="navbar-item">
-                    Genres
-                </a>
-                <a href="favorites.html" class="navbar-item">
-                    Favorites
-                </a>
-              </div>
-            </div>
-          </nav>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="index.html">
+            <img
+              src="assets/images/imbd-logos_transparent.png"
+              class="imbd-logo"
+            />
+            <img
+              hidden
+              src="./assets/images/imbd-small.png"
+              class="imbd-small"
+              alt="imbd-logo"
+            />
+          </a>
+
+          <a role="button" id="burger" class="navbar-burger">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbar-menu" class="navbar-menu">
+          <div class="navbar-start has-text-right">
+            <a href="index.html" class="navbar-item"> Home </a>
+
+            <a href="staying-in.html" class="navbar-item"> Staying In </a>
+
+            <a href="going-out.html" class="navbar-item"> Going Out </a>
+            <a href="genre.html" class="navbar-item"> Genres </a>
+            <a href="favorites.html" class="navbar-item"> Favorites </a>
+          </div>
+        </div>
+      </nav>
     </header>
     <div class="container">
-        <h1 class="title is-1 has-text-centered pt-4 has-text-white">Favorites</h1>
+      <h1 class="title is-1 has-text-centered pt-4 has-text-white">
+        Favorites
+      </h1>
     </div>
-    <div class="container" id="favorites-list">
-
-    </div>
+    <div class="container" id="favorites-list"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/favorites.js"></script>
-</body>
+  </body>
 </html>
