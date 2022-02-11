@@ -13,7 +13,7 @@
 * https://github.com/meganann201
 * https://github.com/jcomp-03
 
-### Link to deployed application: https://alexnj1.github.io/bootcamp-group-project/
+### Link to deployed application: https://alexnj1.github.io/imbd/
 
 ## Screenshots
 
