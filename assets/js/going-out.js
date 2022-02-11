@@ -10,12 +10,12 @@ var nowPlayingButton = document.querySelector(".now-playing");
 
 var loadMoreButton = document.querySelector(".load-more");
 
-const myNav = document.querySelector("#navbar-menu")
-const burger = document.querySelector("#burger")
-burger.addEventListener('click', ()=> {
-    myNav.classList.toggle("is-active")
-    burger.classList.toggle("is-active")
-})
+const myNav = document.querySelector("#navbar-menu");
+const burger = document.querySelector("#burger");
+burger.addEventListener("click", () => {
+  myNav.classList.toggle("is-active");
+  burger.classList.toggle("is-active");
+});
 
 function getUpcoming(pageNumber) {
   fetch(
@@ -57,17 +57,17 @@ function getUpcoming(pageNumber) {
 
             var title = document.createElement("p");
             title.textContent = data.results[i].original_title.toUpperCase();
-            title.className = 'm-title'
+            title.className = "m-title";
 
             var release = document.createElement("p");
             release.textContent =
               "Release Date: " + data.results[i].release_date;
-            release.className = 'm-release'
+            release.className = "m-release";
 
             var description = document.createElement("p");
             description.textContent =
               "Description: " + data.results[i].overview;
-            description.className = 'm-description'
+            description.className = "m-description";
 
             movieDescription.appendChild(title);
             movieDescription.appendChild(release);
@@ -136,16 +136,16 @@ function getNowPlaying(pageNumber) {
 
             var title = document.createElement("p");
             title.textContent = data.results[i].original_title.toUpperCase();
-            title.className = 'm-title'
+            title.className = "m-title";
 
             var release = document.createElement("p");
             release.textContent =
               "Release Date: " + data.results[i].release_date;
-            release.className = 'm-release'
+            release.className = "m-release";
             var description = document.createElement("p");
             description.textContent =
               "Description: " + data.results[i].overview;
-              description.className = 'm-description'
+            description.className = "m-description";
 
             movieDescription.appendChild(title);
             movieDescription.appendChild(release);
